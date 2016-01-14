@@ -7,12 +7,11 @@
 
 
    <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>-->
-	<script src="js/shared/angular.min.js"></script>
+	<script src="js/shared/angular.js"></script>
 	<script src="js/shared/angular-mocks.js"></script>
-	<script src="js/shared/angular-route.min.js"></script>
-  <!--<script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
+	<script src="js/shared/angular-route.js"></script>
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-      <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />-->
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	
 	
   </head>
@@ -52,8 +51,7 @@
 
       </div>
 
-
-      <my-gmaps></my-gmaps> 
+              <div my-map=""></div>
 
 
     </div>
@@ -72,5 +70,8 @@
 
     <!-- Controllers -->
     <script src="js/controllers/MainController.js"></script>
+
+    <!-- Directives -->
+    <script src="js/directives/Gmaps.js"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-
+console.log("gmaps.js trouvé ");
 app.directive('myMap', function() {
     // directive link function
     var link = function(scope, element, attrs) {
@@ -15,6 +15,7 @@ app.directive('myMap', function() {
         
         // init the map
         function initMap() {
+            console.log("init map");
             if (map === void 0) {
                 map = new google.maps.Map(element[0], mapOptions);
                 console.log(map);
@@ -28,7 +29,7 @@ app.directive('myMap', function() {
                 position: position,
                 map: map,
                 title: title,
-                icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png'
+                icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
             };
 
             marker = new google.maps.Marker(markerOptions);
@@ -48,6 +49,7 @@ app.directive('myMap', function() {
             });
         }
         
+
         // show the map and place some markers
         initMap();
         
@@ -57,8 +59,8 @@ app.directive('myMap', function() {
     };
     
     return {
-        restrict: 'E',
-        template: '<my-gmaps></my-gmaps>',
+        restrict: 'A',
+        template: '<div id="gmaps"></div>',
         replace: true,
         link: link
     };
