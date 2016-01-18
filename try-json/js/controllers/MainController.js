@@ -1,10 +1,10 @@
-app.controller('MainController', ['$scope','forecast', function($scope, forecast) { 
-  forecast.success(function(data){
-    $scope.fiveDay = data;
+app.controller('MainController', ['$scope','filmsdata', function($scope, filmsdata) { 
+  filmsdata.success(function(data){
+    $scope.someFilms = data;
     console.log("controller");
 
   });
-  $scope.films = [
+ /* $scope.films = [
   {
     title:'Orange Mecanique',
     director:'Stanley Kubrick',
@@ -21,5 +21,7 @@ app.controller('MainController', ['$scope','forecast', function($scope, forecast
     address:'10 rue machin'
   },
 
-  ]
-}]);
+  ] */
+}]
+
+);

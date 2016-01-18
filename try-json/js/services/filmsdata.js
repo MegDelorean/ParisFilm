@@ -1,5 +1,5 @@
-app.factory('forecast', ['$http', function($http) { 
-  return $http.get('https://s3.amazonaws.com/codecademy-content/courses/ltp4/forecast-api/forecast.json') 
+app.factory('filmsdata', ['$http', function($http) { 
+  return $http.get('js/services/filmsdata_test.json') 
             .success(function(data) { 
               return data; 
             }) 

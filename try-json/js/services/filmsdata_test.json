@@ -1,0 +1,25 @@
+{
+  "data_name": "Paris Film",
+  "films": [
+    {
+      "title": "Minuit à Paris ",
+      "director": "Woody Allen",
+      "place": "Les berges de la Seine"
+    },
+    {
+      "title": "Le fabuleux destin d'Amélie Poulain ",
+      "director": "Jean-Pierre Jeunet",
+      "place": " le café 'les deux moulins', rue Lepic (18e)"
+    },
+    {
+      "title": "Seuls two ",
+      "director": "Eric Judor et Ramzi Bedia",
+      "place": "Place de la concorde"
+    },
+    {
+      "title": "Zazie dans le métro ",
+      "director": "Louis Malle",
+      "place": "Gare de l'Est"
+    }
+  ]
+}

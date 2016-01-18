@@ -7,8 +7,8 @@ app.directive('myMap', function() {
         
         // map config
         var mapOptions = {
-            center: new google.maps.LatLng(50, 2),
-            zoom: 4,
+            center: new google.maps.LatLng(48.9, 2.3),
+            zoom: 10,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             scrollwheel: false
         };
@@ -50,15 +50,17 @@ app.directive('myMap', function() {
                 infoWindow.open(map, marker);
             });
         }
+
         
 
         // show the map and place some markers
         initMap();
         
+
         //transformer cette partie en fonction CreateMarkers(); avec un variable temporaire
         setMarker(map, new google.maps.LatLng(51.508515, -0.125487), 'London', 'Just some content');
         setMarker(map, new google.maps.LatLng(52.370216, 4.895168), 'Amsterdam', 'More content');
-        setMarker(map, new google.maps.LatLng(48.856614, 2.352222), 'Paris', 'Text here');
+        setMarker(map, new google.maps.LatLng(48.856614, 2.352222), 'Paris', '{{ someFilms.data_name }}');
     };
     
     //renvoi de la map et injection dans le html 
