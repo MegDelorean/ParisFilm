@@ -22,6 +22,8 @@ app.controller('MainController', ['$scope','filmsdata', function($scope, filmsda
   },
 
   ] */
+
+  $scope.myMapControl = {};
 }]
 
 );

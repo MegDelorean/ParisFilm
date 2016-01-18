@@ -6,7 +6,12 @@ html, body {
 }
 
 #gmaps {
-    width: 450px;
+    width: 900px;
+    height: 450px;
+}
+
+.panel {
+width: 900px;
     height: 450px;
 }
 

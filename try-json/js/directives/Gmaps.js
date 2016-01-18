@@ -15,13 +15,50 @@ app.directive('myMap', function() {
         
         // init the map
         function initMap() {
-           
+
             if (map === void 0) {
                 map = new google.maps.Map(element[0], mapOptions);
-                
+
+                directionsDisplay = new google.maps.DirectionsRenderer();
+                directionsDisplay.setMap(map);
+                console.log("initmap");
+
             }
-        }    
-        
+        }  
+
+
+        function calcRoute() {
+
+
+           current_pos = new google.maps.LatLng(48.8522135,2.3741935000000467);
+           end_pos = new google.maps.LatLng(48.86297580000001,2.368132599999967);
+
+
+           var dirService = new google.maps.DirectionsService();
+
+
+           var request = {
+               origin:current_pos,
+               destination:end_pos,
+               travelMode: google.maps.TravelMode.DRIVING
+           };
+
+           
+           dirService.route(request, function(result, status) {
+               if (status == google.maps.DirectionsStatus.OK) {
+                    console.log("ok");
+                    directionsDisplay.setDirections(result);
+                }
+                else{
+                    console.log("pas ok :(");
+                }
+        });
+
+           directionsDisplay.setPanel(document.getElementById("map-panel"));
+       }
+
+
+
         // place a marker
         function setMarker(map, position, title, content) {
             var marker;
@@ -55,6 +92,7 @@ app.directive('myMap', function() {
 
         // show the map and place some markers
         initMap();
+        calcRoute();
         
 
         //transformer cette partie en fonction CreateMarkers(); avec un variable temporaire
