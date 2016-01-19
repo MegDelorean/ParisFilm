@@ -1,15 +1,14 @@
 
 
-app.directive('myMap', ['$rootScope', function() {
+app.directive('myMap',function() {
 
-//var name = someFilms.data_name;
-console.log(name);
     // directive link function
     var link = function(scope, element, attrs) {
 
-        //scope : {name :someFilms.data_name}; 
-
         
+
+        //$scope.someFilms = scope;
+
         var map, infoWindow;
         var markers = []; // on déclare un tableau de markers
         
@@ -121,6 +120,6 @@ console.log(name);
         replace: true,
         link: link
     };
-}]);
+});
 
 

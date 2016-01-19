@@ -5,6 +5,10 @@ html, body {
  width:100%;
 }
 
+#map {
+ width: 900px;
+    height: 450px;
+}
 #gmaps {
     width: 900px;
     height: 450px;

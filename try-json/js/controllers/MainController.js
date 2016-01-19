@@ -1,11 +1,12 @@
-app.controller('MainController', ['$rootScope','filmsdata', function($rootScope, filmsdata) { 
+app.controller('MainController', ['$scope','filmsdata', function($scope, filmsdata) { 
   filmsdata.success(function(data){
-    $rootScope.someFilms = data;
-    console.log("controller");
+    $scope.someFilms = data;
+    
 
   });
+
  
-  $rootScope.myMapControl = {};
+  $scope.myMapControl = {};
 }]
 
 );
