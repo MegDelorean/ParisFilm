@@ -1,7 +1,15 @@
 
-app.directive('myMap', function() {
+
+app.directive('myMap', ['$rootScope', function() {
+
+//var name = someFilms.data_name;
+console.log(name);
     // directive link function
     var link = function(scope, element, attrs) {
+
+        //scope : {name :someFilms.data_name}; 
+
+        
         var map, infoWindow;
         var markers = []; // on déclare un tableau de markers
         
@@ -96,9 +104,14 @@ app.directive('myMap', function() {
         
 
         //transformer cette partie en fonction CreateMarkers(); avec un variable temporaire
+       function CreateMarkers(coord, title, content) {
+
+            setMarker(map, new google.maps.Latlng(coord), 'title','content');
+
+        }
         setMarker(map, new google.maps.LatLng(51.508515, -0.125487), 'London', 'Just some content');
         setMarker(map, new google.maps.LatLng(52.370216, 4.895168), 'Amsterdam', 'More content');
-        setMarker(map, new google.maps.LatLng(48.856614, 2.352222), 'Paris', '{{ someFilms.data_name }}');
+        //setMarker(map, new google.maps.LatLng(48.856614, 2.352222), 'Paris',  someFilms.data_name );
     };
     
     //renvoi de la map et injection dans le html 
@@ -108,6 +121,6 @@ app.directive('myMap', function() {
         replace: true,
         link: link
     };
-});
+}]);
 
 
