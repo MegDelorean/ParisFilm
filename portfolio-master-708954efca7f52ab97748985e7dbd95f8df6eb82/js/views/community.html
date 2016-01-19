@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="row large">
+        <div class="columns large-6 small-6">
+            <h1>Communauté</h1>
+        </div>
+        <hr/>
+    </div>
+
+    <div class="columns large-12">
+        <div class="row" ng-repeat="co in cos" >
+            <div class="columns large-12">
+                <h3><a ng-href="{{co.link}}" target="_blank" >{{ co.name }}</a><h3>    
+            </div>
+            
+            <div class="columns large-6">
+                <p>
+                    <a ng-href="{{co.link}}" target="_blank" >
+                        <img ng-src="{{co.preview}}" ng-alt="{{co.name}}"/>
+                    </a>    
+                </p>
+                
+            </div>
+            
+            <div class="columns large-6">
+                <p class="text-justify">{{ co.description }}</p>   
+            </div>
+
+        </div>
+        <hr/>
+    </div>
+</div>
+
+    

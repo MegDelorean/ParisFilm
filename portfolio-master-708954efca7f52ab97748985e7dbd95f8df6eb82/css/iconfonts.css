@@ -1,0 +1,124 @@
+@font-face {
+	font-family: 'softwares';
+	src:url('fonts/font.eot?6lzlj6');
+	src:url('fonts/font.eot?6lzlj6#iefix') format('embedded-opentype'),
+		url('fonts/font.ttf?6lzlj6') format('truetype'),
+		url('fonts/font.woff?6lzlj6') format('woff'),
+		url('fonts/font.svg?6lzlj6#font') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+i {
+	font-family: 'softwares';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	font-size: 2em;
+	display: inline-block;
+	margin: 0ex 0ex 0ex 1ex;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon{
+	display: inline-block;
+	font-family: "Kelly Slab", sans-serif;
+}
+
+p.icon{
+	margin-left: 2ex; 
+}
+
+.color-red{
+	color: #df4b3d;
+}
+
+.color-blue{
+	color: #03A9F4;
+}
+
+.color-green{
+	color: #8BC34A;
+}
+
+.color-yellow{
+	color: #DDC919;
+}
+
+.color-grey{
+	color: #1c1c1c;
+}
+
+.color-transparent{
+	color: transparent;
+}
+
+.icon-Fruity:before {
+	content: "\e904";
+}
+.icon-ProTools:before {
+	content: "\e905";
+}
+.icon-OpenGL:before {
+	content: "\e906";
+}
+.icon-Wordpress:before {
+	content: "\e907";
+}
+.icon-Foundation:before {
+	content: "\e908";
+}
+.icon-Compass:before {
+	content: "\e909";
+}
+.icon-Python:before {
+	content: "\e90a";
+}
+.icon-AngularJs:before {
+	content: "\e90b";
+}
+.icon-Css:before {
+	content: "\e90c";
+}
+.icon-Html:before {
+	content: "\e90d";
+}
+.icon-Js:before {
+	content: "\e90e";
+}
+.icon-Id:before {
+	content: "\e90f";
+}
+.icon-Ai:before {
+	content: "\e910";
+}
+.icon-Au:before {
+	content: "\e911";
+}
+.icon-Pr:before {
+	content: "\e912";
+}
+.icon-Ps:before {
+	content: "\e913";
+}
+.icon-Ae:before {
+	content: "\e914";
+}
+.icon-Cajon:before {
+	content: "\e900";
+}
+.icon-CG:before {
+	content: "\e901";
+}
+.icon-Drums:before {
+	content: "\e902";
+}
+.icon-EG:before {
+	content: "\e903";
+}

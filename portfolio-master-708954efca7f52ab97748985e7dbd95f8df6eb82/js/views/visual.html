@@ -1,0 +1,32 @@
+<dl class="sub-nav">
+    <dt>Projets :</dt>
+    <dd class="active"><a href="">Visuels</a></dd>
+    <dd><a href="#/projets/audio">Audio</a></dd>
+    <dd><a href="#/projets/video">Vidéos</a></dd>
+    <dd><a href="#/projets/web">Web</a></dd>
+</dl>
+
+<div class="row large">
+    <h1>Projets visuels</h1>
+</div>
+
+<div class="row large" ng-repeat="visuel in visuels">
+    
+    <div class="columns large-12">
+        <h2>{{visuel.name}}</h2>
+
+    </div>
+
+    <div class="row large" >
+        <div class="columns large-12">
+            <div ng-repeat="image in visuel.images" class="item" ng-class="image.cls">
+                <img ng-src="{{image.img}}" ng-alt="{{image.alt}}"/>
+            </div>
+
+        </div>
+    </div>
+
+
+    <hr/>
+
+</div>

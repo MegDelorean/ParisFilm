@@ -1,0 +1,19 @@
+<div class="row large">
+    <div class="columns large-12">
+        <h1>Liens Utiles</h1>
+    </div>
+    <hr/>
+</div>
+
+
+<div class="row large" >
+    <div ng-repeat="category in categories">
+        <div class="columns large-12 small-12" >
+            <h2>{{category.name}}</h2>
+            <div ng-repeat="link in category.links">
+                <h3><a ng-href="{{link.link}}" target="_blank">{{link.name}}</a></h3>
+                <p>{{link.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>

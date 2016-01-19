@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="columns large-12">
+        <h1>Cours</h1>
+    </div>
+</div>
+<!-- ng-repeat répète la div qui a cette classe, un peu comme un foreach -->
+<div class="row" ng-repeat="lesson in cours">
+    <div class="row">
+        <div class="columns large-12">
+            <!-- ng-href nécessaire pour créer des URL -->
+            <a ng-href="#/cours/{{ lesson.link }}">
+                <h2>  {{ lesson.name }}  </h2>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="columns large-5 large-offset-1">
+            <img ng-src="{{lesson.preview}}" alt="Cours"/>
+        </div>
+        <div class="columns large-6">
+            <p class="text-justify"> {{ lesson.description }} </p>
+            <ul>
+                <li><em>Sommaire :</em></li>
+                <li ng-repeat="e in lesson.list">{{e}}</li>
+            </ul>
+            <a class="go" ng-href="#/projets/{{ lesson.link }}">
+                Go !
+            </a>
+        </div>
+    </div>
+    <hr/>
+</div>

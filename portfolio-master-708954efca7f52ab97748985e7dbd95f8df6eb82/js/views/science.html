@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="columns large-12">
+        <h1>Mes cours de Science</h1>
+    </div>
+</div>
+
+<div class="row large">
+    <div class="columns large-6" ng-repeat="sc in scs">
+        <div class="card">
+            <p class="card__thumb">
+                <img ng-src="{{sc.preview}}" ng-alt="{{sc.name}}"/>
+            </p>
+            <div class="card__body">
+                <h3>{{sc.name}}</h3>
+                <div class="card__description">
+                    <div ng-repeat="chap in sc.content">
+                        <a ng-href="{{chap.file}}" target="_blank" >{{chap.chapter_name}}</a>
+                        <small>{{chap.date}}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,252 @@
+<div class="row large">
+    <div class="columns large-6 small-6">
+        <h1>C.V.</h1>
+    </div>
+    <div class="columns large-6 small-6 visible-for-medium-up">
+        <blockquote><strong><a href="doc/cv/CV_2015.pdf" target="_blank" ><i class="fa fa-download"></i> Version PDF</a></strong></blockquote>
+
+    </div>
+    <hr/>
+</div>
+
+
+<div class="row large">
+    <div class="columns large-12">
+        <h2>Lorenzo MILESI</h2>
+    </div>
+    <div class="columns large-5 large-offset-1 small-11 small-offset-1">
+        <p>
+            Appt. 10,
+            60 Rue du 11 novembre
+        </p>
+        <p>
+            93330 Neuilly-Sur-Marne
+        </p>
+    </div>
+    <div class="columns large-5 large-offset-1 small-11 small-offset-1">
+        <p>
+            06 40 67 25 23
+        </p>
+        <p>
+            <a href="mailto:lorenzo.milesi@live.fr?Subject=Portfolio">lorenzo.milesi@live.fr</a>
+        </p>
+    </div>
+    <hr/>
+</div>
+
+<div class="row large">
+    <div class="columns large-12">
+        <h2>Formation</h2>
+    </div>
+    <div class="row large visible-for-large-up">
+        <div class="columns large-6" ng-repeat="formation in formations">
+            <div class="card">
+                <h6 class="text-left"><strong>{{formation.year}}</strong></h6>
+                <p class="card__thumb">
+                    <img ng-src="{{formation.preview}}" ng-alt="{{formation.name}}"/>
+                </p>
+                <div class="card__body">
+                    <p class="text-right date">Dernière mise à jour : {{formation.update}}</p>
+
+                    <h3><a ng-href="{{formation.link}}" target="_blank" >{{formation.name}}</a></h3>
+                    <div class="card__description">
+                        <p class="text-justify">{{formation.description}}</p>
+                        <p class="text-justify">{{formation.coords}}</p>
+                        <!--<a class="go" ng-href="{{formation.link}}">
+                            Go !
+                        </a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row large hidden-for-large-up">
+        <div class="columns small-12" ng-repeat="formation in formations">
+            <div class="card">
+                <h6 class="text-left"><strong>{{formation.year}}</strong></h6>
+                <div class="">
+                    <!--<p class="text-right date">Dernière mise à jour : {{formation.update}}</p>-->
+                    <h3><a ng-href="{{formation.link}}" target="_blank" >{{formation.name}}</a></h3>
+                    <div class="">
+                        <p class="text-justify">{{formation.description}}</p>
+                        <p class="text-justify">{{formation.coords}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr/>
+</div>
+
+<div class="row large">
+    <div class="columns large-12">
+        <h2>Expérience</h2>
+    </div>
+    <div class="row large visible-for-large-up">
+        <div class="columns large-6" ng-repeat="experience in experiences">
+            <div class="card">
+                <h6 class="text-left"><strong>{{experience.year}}</strong></h6>
+
+                <p class="card__thumb">
+                    <img ng-src="{{experience.preview}}" ng-alt="{{experience.name}}"/>
+                </p>
+                <div class="card__body">
+                    <p class="text-right date">Dernière mise à jour : {{experience.update}}</p>
+
+                    <h3><a ng-href="{{experience.link}}" target="_blank" >{{experience.name}}</a></h3>
+                    <div class="card__description">
+                        <p class="text-justify">{{experience.description}}</p>
+                        <p class="text-justify">{{experience.coords}}</p>
+                        <!--<a class="go" ng-href="{{formation.link}}">
+                            Go !
+                        </a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row large hidden-for-large-up">
+        <div class="columns small-12" ng-repeat="experience in experiences">
+            <div class="card">
+                <h6 class="text-left"><strong>{{experience.year}}</strong></h6>
+                <div class="">
+                    <h3><a ng-href="{{experience.link}}" target="_blank" >{{experience.name}}</a></h3>
+                    <div class="">
+                        <p class="text-justify">{{experience.description}}</p>
+                        <p class="text-justify">{{experience.coords}}</p>
+                        <!--<a class="go" ng-href="{{formation.link}}">
+                            Go !
+                        </a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr/>
+
+</div>
+
+<div class="row large">
+    <div class="columns large-12">
+        <h2>Compétences</h2>
+    </div>
+
+    <div class="card">
+        
+        <div class="row large">
+            <div class="columns large-4 small-12">
+                <h4>
+                    Dévelopement WEB
+                </h4>
+            </div>
+            <div class="columns large-4 small-6">
+                <em>
+                    Développement Front-End
+                </em>
+                <p>
+                    Expérience en WebDesign
+                </p>
+                <p>
+                    Frameworks CSS : Foundation 5 et Bootstrap
+                </p>
+            </div>
+            <div class="column large-4 small-6">
+                <p>
+                    <img src="img/html5-css3-js.png" class="small aligncenter" alt="html-css-js"/>
+                </p>
+            </div>
+        </div>
+
+        <div class="row large">
+
+            <div class="column large-4 large-offset-4 small-6">
+                <p>
+                    <img src="img/angularjs_logo.png" class="small" alt="html-css-js"/>
+                </p>
+            </div>
+
+            <div class="columns large-4 small-6">
+                <em>
+                    Développement Back-End
+                </em>
+                <p>
+                    Langages php, SQL et javascript
+                </p>
+                <p>
+                    Frameworks php : CakePHP 3.0 <br/>
+                    Frameworks javascript : AngularJS
+                </p>
+            </div>
+
+        </div>
+
+    </div><!-- Développement WEB -->
+        
+    <div class="card">
+        <div class="row large">
+            <div class="columns large-4 small-12">
+                <h4>
+                    Design et Audiovisuel
+                </h4>
+            </div>
+            <div class="columns large-8 small-6">
+                <em>
+                    Impression
+                </em>
+                <p>
+                    InDesign, Photoshop et Illustrator
+                </p>
+            </div>
+        </div>
+
+        <div class="row large">
+
+            <div class="columns large-4 large-offset-4 small-6">
+                <em>
+                    Son et Musique
+                </em>
+                <p>
+                    FL Studio 11, Pro Tools 10 et Adobe Audition
+                </p>
+            </div>
+            <div class="columns large-4 small-6">
+                <p>
+                    <img src="img/flchan.png" class="small" alt=""/>
+                </p>
+            </div>
+        </div>
+
+        <div class="row large">
+            <div class="columns large-4 large-offset-4 small-6">
+                <em>
+                    Montage et Motion Design
+                </em>
+                <p>
+                    Premiere Pro et After Effects
+                </p>
+            </div>
+        </div>
+    </div><!-- Design et Audiovisuel -->
+        
+    <div class="card">
+        <div class="row large">
+            <div class="columns large-4 small-12">
+                <h4>
+                    Scène et Musique
+                </h4>
+            </div>
+            <div class="columns large-8 small-6 small-offset-6">
+                <p>
+                    Formation théâtrale <br/>
+                    Pratique instrumentale
+                </p>
+            </div>
+
+        </div>
+    </div><!-- Scène et Musique -->
+    <hr/>  
+
+
+
+</div>

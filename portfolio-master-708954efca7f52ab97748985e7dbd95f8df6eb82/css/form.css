@@ -1,0 +1,16 @@
+textarea {
+	height: 15em;
+}
+
+::-webkit-input-placeholder{
+	color: #444;
+}
+::-ms-input-placeholder{
+	color: #444;
+}
+:-moz-placeholder{
+	color: #444;	
+}
+::-moz-placeholder{
+	color: #444;
+}

@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="columns large-12">
+        <h1>Portfolio</h1>
+    </div>
+</div>
+<div class="row" ng-repeat="projet in projets">
+    <div class="row">
+        <div class="columns large-12">
+            <a ng-href="#/projets/{{ projet.link }}">
+                <h2>  {{ projet.name }}  </h2>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="columns large-5 large-offset-1">
+            <p class="text-justify" ng-bind-html="projet.preview"></p>
+        </div>
+        <div class="columns large-5 ">
+            <p class="text-justify" ng-bind-html="projet.description"></p>
+                <a class="go" ng-href="#/projets/{{ projet.link }}">
+                    Go !
+                </a>
+        </div>
+    </div>
+    <hr/>
+</div>
