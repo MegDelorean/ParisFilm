@@ -89,32 +89,3 @@ function calcRoute() {
            directionsDisplay.setPanel(document.getElementById("map-panel"));
        }
 */
-/*
-app.service('NewsService', ['$http', function($http){
-    var newsPromise;
-
-    this.getNews = function(){
-        if(!newsPromise){
-            newsPromise = $http.get('news.json');
-        }
-        return newsPromise;
-    };
-}]);
-
-app.controller('NewsController', ['$scope','NewsService', function($scope, NewsService){
-    NewsService.getNews().then(function(data){
-        $scope.news = data.data;
-    })
-}]);
-*/
-
-/*
-
-app.controller('MapCtrl',['$scope', '$http', function($scope, $http){
-        $scope.movies = [];
-              for (i = 0; i < data.length; i++){
-        if(data[i].lat !== 0) { createMarker(data[i]) };
-      }
-      $scope.movies = data;
-
-*/
