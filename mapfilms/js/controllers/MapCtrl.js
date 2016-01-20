@@ -2,7 +2,6 @@
 
 app.controller('MapCtrl',['$scope', 'filmsDataService', '$window', function($scope, filmsDataService, $window){
 $window.navigator.geolocation.getCurrentPosition(function(position) {
-
         filmsDataService.getFilms().then(function(data){
             for (i = 0; i < data.data.length; i++){
                 if(data.data[i].lat !== 0) { createMarker(data.data[i]) };
@@ -54,52 +53,50 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
             title: "Votre position",
         });
 
-//////////////////////////////////////MEGANE BDD///////////////////////////////////////
+    //////////////////////////////////////MEGANE BDD///////////////////////////////////////
 
-    $scope.markers = [];
+        $scope.markers = [];
 
-    var infoWindow = new google.maps.InfoWindow();
+        var infoWindow = new google.maps.InfoWindow();
 
-    var createMarker = function(info){
-        var marker = new google.maps.Marker({
-            map: $scope.map,
-            position: new google.maps.LatLng(info.lat, info.lng),
-            title: info.titre
-        });
+        var createMarker = function(info){
+            var marker = new google.maps.Marker({
+                map: $scope.map,
+                position: new google.maps.LatLng(info.lat, info.lng),
+                title: info.titre
+            });
 
-        var data = [];
-        data = jsonSyncLoad( "http://www.omdbapi.com/?t="+info.titre+"&y=&plot=full&r=json" );
-        if(data.Director == undefined ) {
-            marker.content = '<div class="infoWindowContent"><p>'+ info.real+'</p></div>';
+            google.maps.event.addListener(marker, 'click', function(){
+                var data = [];
+                data = jsonSyncLoad( "http://www.omdbapi.com/?t="+info.titre+"&y=&plot=full&r=json" );
+                if(data.Director == undefined ) {
+                    marker.content = '<div class="infoWindowContent"><p>'+ info.real+'</p></div>';
+                }
+                else {
+                    marker.content = '<div class="infoWindowContent"><p>'+ data.Director+'</p> <p>' + data.Year +'</p><p>'+ data.Genre+ '</p><p>'+data.Actors+'</p></div>';
+                }
+                infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+                infoWindow.open($scope.map, marker);
+            });
+            $scope.markers.push(marker);
         }
-        else {
-            marker.content = '<div class="infoWindowContent"><p>'+ data.Director+'</p> <p>' + data.Year +'</p><p>'+ data.Genre+ '</p><p>'+data.Actors+'</p></div>';
+
+        function jsonSyncLoad( pFile ) {
+            var mime      =    "application/json"   ;
+            var xmlhttp   =   new XMLHttpRequest()  ;
+
+            xmlhttp.open("GET",pFile,false);
+            if (xmlhttp.overrideMimeType)
+                xmlhttp.overrideMimeType( mime );
+
+            xmlhttp.send();
+            return (xmlhttp.status==200) ? JSON.parse( xmlhttp.responseText ) : null ;
         }
 
-        google.maps.event.addListener(marker, 'click', function(){
-            infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
-            infoWindow.open($scope.map, marker);
-        });
-
-        $scope.markers.push(marker);
-    }
-
-    function jsonSyncLoad( pFile ) {
-        var mime      =    "application/json"   ;
-        var xmlhttp   =   new XMLHttpRequest()  ;
-
-        xmlhttp.open("GET",pFile,false);
-        if (xmlhttp.overrideMimeType)
-            xmlhttp.overrideMimeType( mime );
-
-        xmlhttp.send();
-        return (xmlhttp.status==200) ? JSON.parse( xmlhttp.responseText ) : null ;
-    }
-
-    $scope.openInfoWindow = function(e, selectedMarker){
-        e.preventDefault();
-        google.maps.event.trigger(selectedMarker, 'click');
-    }
+        $scope.openInfoWindow = function(e, selectedMarker){
+            e.preventDefault();
+            google.maps.event.trigger(selectedMarker, 'click');
+        }
     });
 }]);
 
