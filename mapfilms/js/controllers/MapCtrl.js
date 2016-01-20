@@ -73,7 +73,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
             marker.content = '<div class="infoWindowContent"><p>'+ info.real+'</p></div>';
         }
         else {
-            marker.content = '<div class="infoWindowContent"><p>'+ data.Director+'</p> <p>' + data.Year +'</p><p>'+ data.Genre+ '</p><p>'+data.Actors+'</p></div>';
+            marker.content = '<div class="infoWindowContent"><img src="'+ data.Poster+'"></img><p>'+ data.Director+'</p> <p>' + data.Year +'</p><p>'+ data.Genre+ '</p><p>'+data.Actors+'</p></div>';
         }
 
         google.maps.event.addListener(marker, 'click', function(){
