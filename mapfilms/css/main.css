@@ -16,24 +16,9 @@ html, body {
 #map_canvas {
     position: relative;
 }
-
-body {
-    font: bold 12px Arial;
-     }
-a {
-    text-decoration: none;
-  }
-#map{
-	margin-right:auto;
-	margin-left:auto;
-    height:500px;
-    width:1000px;
-    box-shadow: 3px 3px 10px gray;
-    }
 #repeat{
     display: inline;
-
-     }
+}
 #film_container {
      width: 1000px;
      margin: 13px 3px 3px 0px;
