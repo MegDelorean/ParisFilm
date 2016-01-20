@@ -26,21 +26,7 @@ app.controller('MapCtrl',['$scope', 'filmsDataService', function($scope, filmsDa
           position: new google.maps.LatLng(info.lat, info.lng),
           title: info.titre
       });
-/* TEST POUR RECUPERER DU CONTENU AVEC API */
-
-       $scope.information = [];
-       $http.get('http://www.omdbapi.com/?t='+info.titre+'&y=&plot=full&r=json')
-            .success(function(data) {
-                 $scope.information = data;
-            })
-            .error(function(data,status,error,config){
-                $scope.information = [{heading:"Error",description:"Could not load json data"}];
-            });
-
-
-/*FIN */
-    marker.content = '<div class="infoWindowContent">'
-+ information.real + information.Year + information.Genre+ '</div>';
+    marker.content = '<div class="infoWindowContent">'+ info.real + '</div>';
 
         google.maps.event.addListener(marker, 'click', function(){
             infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
@@ -57,6 +43,7 @@ app.controller('MapCtrl',['$scope', 'filmsDataService', function($scope, filmsDa
     }
 
 }]);
+
 
 /*
 function calcRoute() {
