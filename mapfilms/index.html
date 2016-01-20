@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html ng-app="mapsApp">
 	<head>
-		<meta charset="ISO-8859-1">
-		<title>Insert title here</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+		<script src="http://maps.googleapis.com/maps/api/js"></script>
+		<!-- Basic Page Needs -->
+		<meta charset="utf-8">
+		<title>Your page title here :)</title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<!-- Mobile Specific Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- FONT -->
+		<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+		<!-- CSS
+		–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/skeleton.css">
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/maps.css">
-			<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
-			<script src="http://maps.googleapis.com/maps/api/js"></script>
-	</head>
-	<body>
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+
+  <!-- Primary Page Layout -->
+
 	<div  id="map_canvas" ng-controller="MapCtrl">
 	    <div id="map"></div>
 	</div>
