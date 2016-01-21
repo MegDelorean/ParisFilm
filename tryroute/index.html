@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="routeApp">
+    <head>
+        <meta charset="utf-8" />
+        <title>Route App</title>        
+        <link rel="stylesheet" href="web/css/style.css">
+        <script src="js/vendor/angular.js"></script>
+        <script src="js/vendor/angular-route.js"></script>
+        <script src="js/script.js"></script>
+    </head>
+    <body>
+		<div ng-view>
+		</div>
+        <nav>
+            <a href="#/home" class="btn btn-primary">Page d'accueil</a>
+            <a href="#/contact" class="btn btn-success">Page de contact</a>
+        </nav>
+    </body>
+</html>

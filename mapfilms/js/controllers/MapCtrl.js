@@ -1,6 +1,34 @@
+/*angular.module('appMaps', ['uiGmapgoogle-maps'])
+    .controller('mainCtrl', function($scope, $log) {
+        $scope.map = {center: {latitude: 40.1451, longitude: -99.6680 }, zoom: 4 }
+        $scope.options = {scrollwheel: false};
+        $scope.marker = {
+            coords: {
+                latitude: 40.1451,
+                longitude: -99.6680
+            },
+            show: false,
+            id: 0
+        };
+
+        $scope.windowOptions = {
+            visible: false
+        };
+
+        $scope.onClick = function() {
+            $scope.windowOptions.visible = !$scope.windowOptions.visible;
+        };
+
+        $scope.closeClick = function() {
+            $scope.windowOptions.visible = false;
+        };
+
+        $scope.title = "Window Title!";
+    });*/
+
 //Angular App Module and Controller
 
-app.controller('MapCtrl',['$scope', 'filmsDataService', '$window', function($scope, filmsDataService, $window){
+routeAppControllers.controller('MapCtrl',['$scope', 'filmsDataService', '$window', '$timeout', function($scope, filmsDataService, $window, $timeout){
 $window.navigator.geolocation.getCurrentPosition(function(position) {
         filmsDataService.getFilms().then(function(data){
             for (i = 0; i < data.data.length; i++){
@@ -10,32 +38,36 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
         })
 
 
+    $scope.message = "Bienvenue sur la page Carte";
         /*  var lat = position.coords.latitude;
             var lng = position.coords.longitude; */
         // On code lat et lng en dur pour simuler que nous nous trouvons dans Paris
         var lat = 48.863811;
         var lng = 2.345753;
 
-        $scope.$apply(function(){
-        // Récuperation des données pour le marqueur de position
-        $scope.mylat = lat;
-        $scope.mylng = lng;
-        // Test périmetre
-        if ( (lat > 48.81229 ) && (lat < 48.905351) && (lng < 2.423) && (lng > 2.243443) )
-            {
-                //Si nous sommes dans le perimetre : on centre sur notre position
-                $scope.lat = lat;
-                $scope.lng = lng;
-                $scope.zoom = 15;
-            }
-            else
-            {
-                //Si nous sommes hors du perimetre : on centre sur Paris
-                $scope.lat =48.856614;
-                $scope.lng = 2.3522219000000177;
-                $scope.zoom = 12;
-            }
-        });
+        //$timeout(function(){
+            $scope.$apply(function(){
+                // Récuperation des données pour le marqueur de position
+                $scope.mylat = lat;
+                $scope.mylng = lng;
+                // Test périmetre
+                if ( (lat > 48.81229 ) && (lat < 48.905351) && (lng < 2.423) && (lng > 2.243443) )
+                {
+                    //Si nous sommes dans le perimetre : on centre sur notre position
+                    $scope.lat = lat;
+                    $scope.lng = lng;
+                    $scope.zoom = 15;
+                }
+                else
+                {
+                    //Si nous sommes hors du perimetre : on centre sur Paris
+                    $scope.lat =48.856614;
+                    $scope.lng = 2.3522219000000177;
+                    $scope.zoom = 12;
+                }
+            });
+        //})
+
 
         var mapOptions = {
             zoom: $scope.zoom,
@@ -52,8 +84,6 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
             icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
             title: "Votre position",
         });
-
-    //////////////////////////////////////MEGANE BDD///////////////////////////////////////
 
         $scope.markers = [];
 

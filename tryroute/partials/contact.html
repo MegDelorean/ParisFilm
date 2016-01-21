@@ -1,0 +1,16 @@
+<!-- partials/contact.html -->
+<section class="contact">
+	<h2>Page de contact</h2>
+	<p>
+		{{ message }}
+	</p>
+	<form>
+		<textarea ng-model="msg"></textarea>
+	</form>
+	<p>
+		<em>Votre message</em> :
+		<blockquote>
+			{{msg}}
+		</blockquote>
+	</p>
+</section>
