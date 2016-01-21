@@ -103,6 +103,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                 }
                 else {
                     marker.content = '<div class="infoWindowContent"><img src="'+ data.Poster+'"></img><p>'+ data.Director+'</p> <p>' + data.Year +'</p><p>'+ data.Genre+ '</p><p>'+data.Actors+'</p></div>';
+                    }
                     infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
                     infoWindow.open($scope.map, marker);
                 });
