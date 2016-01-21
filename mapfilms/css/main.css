@@ -1,14 +1,15 @@
 /****************************** GENERAL ***************************/
 html, body {
 	font-family: 'Roboto', sans-serif;
-	height: 100%;
+    height: 100%;
 	width: 100%;
 }
 
 
 /****************************** MAP ***************************/
 #map_canvas, #map {
-    height: 100%;
+    max-height: 100%;
+    min-height: 500px;
     width: 100%;
     margin: 0px;
 }
