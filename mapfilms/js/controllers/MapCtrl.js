@@ -30,14 +30,7 @@
 
 routeAppControllers.controller('MapCtrl',['$scope', 'filmsDataService', '$window', '$timeout', function($scope, filmsDataService, $window, $timeout){
 $window.navigator.geolocation.getCurrentPosition(function(position) {
-        filmsDataService.getFilms().then(function(data){
-            for (i = 0; i < data.data.length; i++){
-                if(data.data[i].lat !== 0) { createMarker(data.data[i]) };
-            }
-            $scope.movies = data.data;
-        })
-
-
+        
     $scope.message = "Bienvenue sur la page Carte";
         /*  var lat = position.coords.latitude;
             var lng = position.coords.longitude; */
@@ -88,6 +81,13 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
         $scope.markers = [];
 
         var infoWindow = new google.maps.InfoWindow();
+
+           filmsDataService.getFilms().then(function(data){
+            for (i = 0; i < data.data.length; i++){
+                if(data.data[i].lat !== 0) { createMarker(data.data[i]) };
+            }
+            $scope.movies = data.data;
+        })
 
         var createMarker = function(info){
             var marker = new google.maps.Marker({
