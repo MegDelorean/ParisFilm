@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html ng-app="mapsApp">
+<html ng-app="app">
 	<head>
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+		<script src="js/shared/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+		<script src="js/shared/angular-route.js"></script>
 		<script src="http://maps.googleapis.com/maps/api/js"></script>
+
+    <script src="http://rawgit.com/angular-ui/angular-google-maps/2.0.X/dist/angular-google-maps.js"></script>
 		<!-- Basic Page Needs -->
 		<meta charset="utf-8">
 		<title>Your page title here :)</title>
@@ -21,22 +25,37 @@
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/maps.css">
 
-		<!-- Favicon -->
-		<link rel="icon" type="image/png" href="images/favicon.png">
 	</head>
 	<body>
+		<!-- Header -->
+		<header>
+	    	<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+	        <nav id="menu">
+	        	<ul id="menu-nav">
+	                <li><a href="#/home">Accueil</a></li>
+	                <li><a href="#/carte">Carte</a></li>
+	                <li><a href="#/ballades">Ballades</a></li>
+	                <li><a href="#/parametres">Paramètres</a></li>
+					<li><a href="#/apropos">A propos</a></li>
+	            </ul>
+	        </nav>
+		</header>
 
 		<!-- Primary Page Layout -->
 
-		<div  id="map_canvas" ng-controller="MapCtrl">
-		    <div id="map"></div>
-		</div>
+<div  id="map_canvas" ng-controller="MapCtrl">
+		<div ng-view></div>
+</div>
 
 		<!-- Modules -->
 	    <script src="js/app.js"></script>
 
 	    <!-- Controllers -->
+	    <script src="js/controllers/HomeCtrl.js"></script>
 	    <script src="js/controllers/MapCtrl.js"></script>
+	    <script src="js/controllers/BalladesCtrl.js"></script>
+	    <script src="js/controllers/ParamCtrl.js"></script>
+	    <script src="js/controllers/AproposCtrl.js"></script>
 
 	    <!-- Services -->
 		<script src="js/services/filmsdata.js"></script>
