@@ -70,7 +70,9 @@ app.controller('MapCtrl',['$scope', '$http', function($scope, $http){
            data = jsonSyncLoad( "http://www.omdbapi.com/?t="+info.titre+"&y=&plot=full&r=json" );
 
            if(data.Director == undefined ) {
+            console.log(info.titre);
              marker.content = '<div class="infoWindowContent"><p>'+ info.real+'</p></div>';
+
            }
            else{
              marker.content = '<div class="infoWindowContent"><p>'+ data.Director+'</p> <p>' + data.Year +'</p><p>'+ data.Genre+ '</p><p>'+data.Actors+'</p></div>'; 
