@@ -67,41 +67,33 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
             map: $scope.map,
             position: new google.maps.LatLng(info.lat, info.lng),
             title: info.titre
-        });
+        });	
 		
-		
-		
-        
         google.maps.event.addListener(marker, 'click', function(){
-			
+			//Chargement d'autres infos par une api externe
 			var data = [];
 			data = jsonSyncLoad( "http://www.omdbapi.com/?t="+info.titre+"&y=&plot=full&r=json" );
 			if(data.Director == undefined ) {
-				marker.content = '<div class="infoWindowContent"><p>'+ info.real+'</p><button ng-click="GetItineraire()">Go!</button></div>';
+				marker.content = '<html ng-app="mapsApp"><div class="infoWindowContent" ng-controller="MapCtrl"><p>'+ info.real+'</p><button ng-click="calcRoute('+info.lat+','+info.lng+')">Go!</button></div></html>';
 			}
 			else {
-				marker.content = '<div class="infoWindowContent"><p>'+ data.Director+'</p> <p>' + data.Year +'</p><p>'+ data.Genre+ '</p><p>'+data.Actors+'</p><button ng-click="GetItineraire()">Go!</button></div>';
+				marker.content = '<html ng-app="mapsApp"><div class="infoWindowContent" ng-controller="MapCtrl"><p>'+ data.Director+'</p> <p>' + data.Year +'</p><p>'+ data.Genre+ '</p><p>'+data.Actors+'</p><button ng-click="calcRoute('+info.lat+','+info.lng+')">Go!</button></div></html>';
 			}
 				infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
 				infoWindow.open($scope.map, marker);
 				
-				calcRoute(info.lat, info.lng);
+				$scope.calcRoute(info.lat, info.lng);
 				
 			});
 			
 
         $scope.markers.push(marker);
     }
-		
-	//Fonction pour lancer l'itineraire au clique du bouton 
-	$scope.GetItineraire = function() { 
-		console.log ("blabla");
-	}
 			
 	//Fonction pour le calcul d'itineraires
-	function calcRoute(latitude, longitude) {
-
-		   
+		$scope.calcRoute = function(latitude,longitude)
+		{
+		  
            current_pos = new google.maps.LatLng($scope.mylat,$scope.mylng);
            end_pos = new google.maps.LatLng(latitude,longitude);
 
@@ -127,7 +119,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
         });
 
            directionsDisplay.setPanel(document.getElementById("map-panel"));
-       }
+       };
 
     function jsonSyncLoad( pFile ) {
         var mime      =    "application/json"   ;
