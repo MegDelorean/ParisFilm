@@ -5,7 +5,15 @@
 </p>
 <div id="map_canvas">
     <div id="map"></div>
+    <div id="map-panel"></div>
 </div>
+
+<form action="demo_form.asp" method="get">
+	<div ng-repeat="filtre in filtres">
+	  <input type="checkbox" name="{{ filtre | lowercase}}" value="{{ filtre }}" id="{{ filtre | lowercase}}" > {{ filtre }}<br>
+	</div>
+	<input type="submit" value="Submit">
+</form>
 
 <!-- <div id="map_canvas" ng-controller="MapCtrl">
     <ui-gmap-google-map id="map" center="map.center" zoom="map.zoom" draggable="true" options="options">
@@ -14,5 +22,5 @@
                 <div>{{title}}</div>
             </ui-gmap-window>
         </ui-gmap-marker>
-    </ui-gmap-google-map> 
+    </ui-gmap-google-map>
 </div>-->

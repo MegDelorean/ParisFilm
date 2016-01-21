@@ -30,8 +30,20 @@
 
 routeAppControllers.controller('MapCtrl',['$scope', 'filmsDataService', '$window', '$timeout', function($scope, filmsDataService, $window, $timeout){
 $window.navigator.geolocation.getCurrentPosition(function(position) {
-        
+
     $scope.message = "Bienvenue sur la page Carte";
+    $scope.filtres = [
+        "All",
+        "Action",
+        "Adventure",
+        "Comedy",
+        "Crime",
+        "Documentary",
+        "Drama",
+        "Romance",
+        "Short",
+        "Thriller"
+    ]
         /*  var lat = position.coords.latitude;
             var lng = position.coords.longitude; */
         // On code lat et lng en dur pour simuler que nous nous trouvons dans Paris
@@ -69,6 +81,8 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
         }
 
         $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        directionsDisplay.setMap($scope.map);
 
         //Affichage de notre localisation
         var myLoc = new google.maps.Marker({
@@ -106,9 +120,41 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                     }
                     infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
                     infoWindow.open($scope.map, marker);
+
+                    $scope.calcRoute(info.lat, info.lng);
                 });
             $scope.markers.push(marker);
         }
+
+        $scope.calcRoute = function(latitude,longitude)
+        {
+
+           current_pos = new google.maps.LatLng($scope.mylat,$scope.mylng);
+           end_pos = new google.maps.LatLng(latitude,longitude);
+
+
+           var dirService = new google.maps.DirectionsService();
+
+
+           var request = {
+               origin:current_pos,
+               destination:end_pos,
+               travelMode: google.maps.TravelMode.WALKING
+           };
+
+
+           dirService.route(request, function(result, status) {
+               if (status == google.maps.DirectionsStatus.OK) {
+                    console.log("ok");
+                    directionsDisplay.setDirections(result);
+                }
+                else{
+                    console.log("pas ok :(");
+                }
+        });
+
+           directionsDisplay.setPanel(document.getElementById("map-panel"));
+       };
 
         function jsonSyncLoad( pFile ) {
             var mime      =    "application/json"   ;
