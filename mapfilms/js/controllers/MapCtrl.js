@@ -98,12 +98,35 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
 
            filmsDataService.getFilms().then(function(data){
             for (i = 0; i < data.data.length; i++){
-                if(data.data[i].lat !== 0) { createMarker(data.data[i]) };
+                if(data.data[i].lat !== 0) {
+                 createMarker(data.data[i])
+                }
+                else { 
+                 gpsdata = [];
+                
+                 gpsdata= jsonSyncLoad("http://maps.googleapis.com/maps/api/geocode/json?address="+data.data[i].adr+"&sensor=false");
+                 
+                    if(gpsdata.results[0].geometry.location.lat != undefined && gpsdata.results[0].geometry.location.lng!= undefined) {
+                    data.data[i].lat = gpsdata.results[0].geometry.location.lat;
+                    data.data[i].lng = gpsdata.results[0].geometry.location.lng;
+                    console.log("LE RESULTAT : "+data.data[i].lat+" , "+data.data[i].lng);
+                    createMarker(data.data[i])
+
+
+                    };
+                }
             }
             $scope.movies = data.data;
         })
+           // gpsdatatest = [];
+            //gpsdatatest = jsonSyncLoad("http://maps.googleapis.com/maps/api/geocode/json?address=546%20rue%20Baruch%20de%20Spinoza,%20Avignon&sensor=false");
+                 //console.log(gpsdatatest);
+                 //console.log(gpsdatatest.results[0].geometry.location.lat);
+
 
         var createMarker = function(info){
+
+            var count = 0;
             var marker = new google.maps.Marker({
                 map: $scope.map,
                 position: new google.maps.LatLng(info.lat, info.lng),
@@ -118,17 +141,19 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                 else {
                     marker.content = '<div class="infoWindowContent"><img src="'+ data.Poster+'"></img><p>'+ data.Director+'</p> <p>' + data.Year +'</p><p>'+ data.Genre+ '</p><p>'+data.Actors+'</p></div>';
                     }
-                    infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+                    infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content + '<button ng-dblclick="'+$scope.calcRoute(info.lat, info.lng)+'">Go!</button>');
                     infoWindow.open($scope.map, marker);
 
-                    $scope.calcRoute(info.lat, info.lng);
+                    //$scope.calcRoute(info.lat, info.lng);
                 });
             $scope.markers.push(marker);
+            count++;
+            console.log(count);
         }
 
         $scope.calcRoute = function(latitude,longitude)
         {
-
+            console.log("calcRoute");
            current_pos = new google.maps.LatLng($scope.mylat,$scope.mylng);
            end_pos = new google.maps.LatLng(latitude,longitude);
 
