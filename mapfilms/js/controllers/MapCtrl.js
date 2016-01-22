@@ -118,7 +118,6 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                     if(gpsdata.results[0].geometry.location.lat != undefined && gpsdata.results[0].geometry.location.lng!= undefined) {
                     data.data[i].lat = gpsdata.results[0].geometry.location.lat;
                     data.data[i].lng = gpsdata.results[0].geometry.location.lng;
-                    console.log("LE RESULTAT : "+data.data[i].lat+" , "+data.data[i].lng);
                     createMarker(data.data[i])
 
 
@@ -134,8 +133,9 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
 
 
 
+
         var createMarker = function(info){
-            var count = 0;
+
             var marker = new google.maps.Marker({
                 map: $scope.map,
                 position: new google.maps.LatLng(info.lat, info.lng),
@@ -149,21 +149,23 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                     marker.content = '<div class="infoWindowContent"><p>'+ info.real+'</p></div>';
                 }
                 else {
-                    marker.content = '<div class="infoWindowContent"><img src="'+ data.Poster+'"></img><p>'+ data.Director+'</p> <p>' + data.Year +'</p><p>'+ data.Genre+ '</p><p>'+data.Actors+'</p></div>';
+                    console.log(data.Poster);
+                    marker.content = '<div class="infoWindowContent"><img src="'+ data.Poster+'"></img><p>'+ data.Director+'</p> <p>' + data.Year +'</p><p>'+ data.Genre+ '</p><p>'+data.Actors+'</p><p>'+data.Plot+'</p></div>';
                     }
+
                     infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content + '<button ng-dblclick="'+$scope.calcRoute(info.lat, info.lng)+'">Go!</button>');
                     infoWindow.open($scope.map, marker);
 
                     //$scope.calcRoute(info.lat, info.lng);
                 });
             $scope.markers.push(marker);
-            count++;
-            console.log(count);
+            
+            
         }
 
         $scope.calcRoute = function(latitude,longitude)
         {
-            console.log("calcRoute");
+        
            current_pos = new google.maps.LatLng($scope.mylat,$scope.mylng);
            end_pos = new google.maps.LatLng(latitude,longitude);
 
