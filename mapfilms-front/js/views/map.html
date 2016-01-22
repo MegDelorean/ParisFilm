@@ -1,0 +1,28 @@
+<div id="heading">
+<p>
+	{{ message }}
+</p>
+<div id ="icone">
+<img ng-src="images/{{icone}}" alt="explorer-icone" />
+</div>
+<form method="get" action="/search" id="search">
+  <input name="q" type="text" size="40" placeholder="Search..." />
+</form>
+</div>
+
+<div id="Responsive-Content">
+
+    <div id="map"></div>
+
+<div/>
+
+
+<!-- <div id="map_canvas" ng-controller="MapCtrl">
+    <ui-gmap-google-map id="map" center="map.center" zoom="map.zoom" draggable="true" options="options">
+        <ui-gmap-marker idkey="marker.id" coords="marker.coords" options="marker.options" click="onClick()" events="marker.events" >
+            <ui-gmap-window options="windowOptions" closeClick="closeClick()">
+                <div>{{title}}</div>
+            </ui-gmap-window>
+        </ui-gmap-marker>
+    </ui-gmap-google-map> 
+</div>-->

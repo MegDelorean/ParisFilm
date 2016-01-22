@@ -378,6 +378,24 @@
     "lng": 2.342194
   },
   {
+    "titre": "CHERI",
+    "real": "STEPHEN FREARS",
+    "rue": "ROYALE",
+    "cp": 75008,
+    "adr": "RUE ROYALE 75008 Paris France",
+    "lat": 48.867987,
+    "lng": 2.322978
+  },
+  {
+    "titre": "CHERI",
+    "real": "STEPHEN FREARS",
+    "rue": "DE LA CONCORDE",
+    "cp": 75007,
+    "adr": "PONT DE LA CONCORDE 75007 Paris France",
+     "lat": 0,
+    "lng": 0
+  },
+  {
     "titre": "UN HOMME ET SON CHIEN",
     "real": "FRANCIS HUSTER",
     "rue": "D'ALSACE",
