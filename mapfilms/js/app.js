@@ -16,9 +16,13 @@ app.config(['$routeProvider',
             controller: 'HomeCtrl',
 			templateUrl: 'js/views/home.html'
         })
-        .when('/carte', {
+        /*.when('/carte', {
             controller: 'MapCtrl',
 			templateUrl: 'js/views/map.html'
+        })*/
+        .when('/carte2', {
+            controller: 'MapCtrl2',
+			templateUrl: 'js/views/map2.html'
         })
         .when('/ballades', {
             controller: 'BalladesCtrl',
@@ -39,4 +43,3 @@ app.config(['$routeProvider',
 ]);
 
 var routeAppControllers = angular.module('routeAppControllers', []);
-

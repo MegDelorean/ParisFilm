@@ -1,38 +1,29 @@
-{
-  "data_name": "Paris Film",
-  "films":
-  [
-    {
-      "title": "Minuit à Paris ",
-      "desc": "Synopsis Minuit",
-      "director": "Woody Allen",
-      "place": "Les berges de la Seine",
-      "lat" : 0,
-      "lng" : 0
-    },
-    {
-      "title": "Le fabuleux destin d'Amélie Poulain ",
-      "desc": "Synopsis Amelie",
-      "director": "Jean-Pierre Jeunet",
-      "place": " le café 'les deux moulins', rue Lepic (18e)",
-      "lat" : 48.8761254,
-      "lng" : 2.3412238
-    },
-    {
-      "title": "Seuls two ",
-      "desc": "Synopsis Seuls two",
-      "director": "Eric Judor et Ramzi Bedia",
-      "place": "Place de la concorde",
-      "lat" : "48.8498693",
-      "lng" : "2.3912631"
-    },
-    {
-      "title": "Zazie dans le métro ",
-      "desc": "Synopsis Zazie",
-      "director": "Louis Malle",
-      "place": "Gare de l'Est",
-      "lat" : "48.8372728",
-      "lng" : "2.3353873"
-    }
-  ]
-}
+[
+  {
+    "titre": "BAMBOU",
+    "real": "DIDIER BOURDON",
+    "rue": "DE L'OURCQ",
+    "cp": 75019,
+    "adr": "RUE DE L'OURCQ 75019 Paris France",
+    "lat": 48.891695,
+    "lng": 2.380257
+  },
+  {
+    "titre": "FROM PARIS WITH LOVE",
+    "real": "PIERRE MOREL",
+    "rue": "D'IVRY",
+    "cp": 75013,
+    "adr": "AVENUE D'IVRY 75013 Paris France",
+    "lat": 48.823777,
+    "lng": 2.364813
+  },
+  {
+    "titre": "BAMBOU",
+    "real": "DIDIER BOURDON",
+    "rue": "DE L'OISE",
+    "cp": 75019,
+    "adr": "QUAI DE L'OISE 75019 Paris France",
+    "lat": 48.890258,
+    "lng": 2.382685
+  }
+]

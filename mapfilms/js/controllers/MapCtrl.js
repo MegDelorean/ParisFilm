@@ -31,9 +31,18 @@
 routeAppControllers.controller('MapCtrl',['$scope', 'filmsDataService', '$window', '$timeout', function($scope, filmsDataService, $window, $timeout){
 $window.navigator.geolocation.getCurrentPosition(function(position) {
 
+
+    $scope.counter = 0;
+    $scope.change = function() {
+        $scope.counter++;
+    };
+
+
+
+
+
     $scope.message = "Bienvenue sur la page Carte";
     $scope.filtres = [
-        "All",
         "Action",
         "Adventure",
         "Comedy",
@@ -96,18 +105,35 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
 
         var infoWindow = new google.maps.InfoWindow();
 
-           filmsDataService.getFilms().then(function(data){
+        filmsDataService.getFilms().then(function(data){
             for (i = 0; i < data.data.length; i++){
-                if(data.data[i].lat !== 0) { createMarker(data.data[i]) };
+                if(data.data[i].lat !== 0) { createMarker(data.data[i], marker_visible) };
             }
             $scope.movies = data.data;
         })
 
-        var createMarker = function(info){
+function setMapOnAll(map) {
+      for (var i = 0; i < $scope.markers.length; i++) {
+        $scope.markers[i].setMap(map);
+      }
+    }
+
+
+
+        $scope.allVal = true;
+
+        var marker_visible = true;
+
+        $scope.allAction= function() {
+                marker_visible = false;
+        }
+
+        var createMarker = function(info, marker_visible){
             var marker = new google.maps.Marker({
                 map: $scope.map,
                 position: new google.maps.LatLng(info.lat, info.lng),
-                title: info.titre
+                title: info.titre,
+                visible: marker_visible
             });
             google.maps.event.addListener(marker, 'click', function(){
                 var data = [];
@@ -207,3 +233,5 @@ function calcRoute() {
            directionsDisplay.setPanel(document.getElementById("map-panel"));
        }
 */
+
+

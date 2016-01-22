@@ -1,0 +1,83 @@
+
+
+<p>
+	{{ message }}
+</p>
+
+
+
+ <div id="map_canvas">
+    <ui-gmap-google-map id="map" center="map.center" zoom="map.zoom" draggable="true" options="options">
+        <ui-gmap-marker idkey="myLoc.id" coords="myLoc.coords" options="myLoc.options" click="onClick()" events="myLoc.events" control='myLoc.control' >
+            <ui-gmap-window options="windowOptions" closeClick="closeClick()">
+                <div>{{windowOptions.title}}</div>
+            </ui-gmap-window>
+        </ui-gmap-marker>
+        <span ng-if="checkedAll" class="animate-if">
+          <ui-gmap-marker ng-repeat="mov in moviesMarkers" idkey="mov.id" coords="mov.coords" options="mov.options" click="onClick()" events="mov.events" control='mov.control' >
+             <!--  <ui-gmap-window options="windowOptions" closeClick="closeClick()">
+                  <div>{{windowOptions.title}}</div>
+              </ui-gmap-window>-->
+          </ui-gmap-marker>
+        </span>
+
+<!--         <ui-gmap-markers models="moviesMarkers" coords="'moviesMarkers.coords'">
+        </ui-gmap-markers> -->
+    </ui-gmap-google-map>
+    <div id="map-panel"></div>
+</div>
+<form>
+  <input type="checkbox" ng-model="checkedAll" ng-init="checkedAll=true" /> All<br>
+  <tt>debug value checkbox = {{checkedAll}}</tt>
+</form>
+
+<span ng-if="checkedAll" class="animate-if">
+  This is removed when the checkbox is unchecked.
+</span>
+
+<!-- <div id="map_canvas">
+    <div id="map"></div>
+    <div id="map-panel"></div>
+</div> -->
+
+<!-- <form>
+	<input type="checkbox" ng-model="allVal" id="all" ng-change="allAction()" > All<br>
+<tt>debug = {{allVal}}</tt><br/>
+
+	<div ng-repeat="filtre in filtres">
+	  	<input type="checkbox" name="{{ filtre | lowercase}}" value="{{ filtre }}" id="{{ filtre | lowercase}}" > {{ filtre }}<br>
+	</div>
+</form> -->
+<!--
+<script>
+  angular.module('checkboxExample', [])
+    .controller('ExampleController', ['$scope', function($scope) {
+      $scope.checkboxModel = {
+       value1 : true,
+       value2 : 'YES'
+     };
+    }]);
+</script>
+<form name="myForm" ng-controller="ExampleController">
+  <label>Value1:
+    <input type="checkbox" ng-model="checkboxModel.value1">
+  </label><br/>
+  <label>Value2:
+    <input type="checkbox" ng-model="checkboxModel.value2"
+           ng-true-value="'YES'" ng-false-value="'NO'">
+   </label><br/>
+  <tt>value1 = {{checkboxModel.value1}}</tt><br/>
+  <tt>value2 = {{checkboxModel.value2}}</tt><br/>
+ </form> -->
+
+
+<!-- <div>
+  <input type="checkbox" ng-model="confirmed" ng-change="change()" id="ng-change-example1" />
+  <input type="checkbox" ng-model="confirmed" id="ng-change-example2" />
+  <label for="ng-change-example2">Confirmed</label><br />
+  <tt>debug = {{confirmed}}</tt><br/>
+  <tt>counter = {{counter}}</tt><br/>
+</div> -->
+
+
+
