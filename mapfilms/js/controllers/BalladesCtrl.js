@@ -82,7 +82,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
 
 
         var createMarker = function(info){
-        	console.log("yolo");
+        	
             
             var marker = new google.maps.Marker({
                 map: $scope.map,
@@ -109,6 +109,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
             
             
         }
+        
 
         $scope.calcRoute = function(latitude,longitude)
         {

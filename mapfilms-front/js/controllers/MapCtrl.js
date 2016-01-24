@@ -107,7 +107,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
             });
             google.maps.event.addListener(marker, 'click', function(){
                 var data = [];
-                data = jsonSyncLoad( "http://www.omdbapi.com/?t="+info.titre+"&y=&plot=full&r=json" );
+                data = jsonSyncLoad( "http://www.omdbapi.com/?t="+info.titre+"&y=&plot=full&r=json");
                 if(data.Director == undefined ) {
                     marker.content = '<div class="infoWindowContent"><div id ="content"><p><b>Réalisateur :</b> '+ info.real+'</p><button ng-click ="">GO!</button></div></div>';
                 }
@@ -116,8 +116,8 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
 				{
 					marker.content = '<div class="infoWindowContent"><div id ="content"><p><b>blob :</b> '+ data.Director+'</p><p><b>Sortie :</b> ' + data.Year +'</p><p><b>Genre :</b> '+ data.Genre+ '</p><p><b>Acteurs :</b> '+data.Actors+'</p><button ng-click ="">GO!</button></div></div>';
 				}
-                    marker.content = '<div class="infoWindowContent"><img src="'+ data.Poster+'"></img><div id ="content"><p><b>Réalisateur :</b> '+ data.Director+'</p><p><b>Sortie :</b> ' + data.Year +'</p><p><b>Genre :</b> '+ data.Genre+ '</p><p><b>Acteurs :</b> '+data.Actors+'</p><button ng-click ="">GO!</button></div></div>';
-					console.log(data.Poster);
+                    marker.content = '<div class="infoWindowContent"><img src="http://img.omdbapi.com/?i='+data.imdbID+'&apikey=dab7b153"></img><div id ="content"><p><b>Réalisateur :</b> '+ data.Director+'</p><p><b>Sortie :</b> ' + data.Year +'</p><p><b>Genre :</b> '+ data.Genre+ '</p><p><b>Acteurs :</b> '+data.Actors+'</p><button ng-click ="">GO!</button></div></div>';
+					
                 }
                     infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
                     infoWindow.open($scope.map, marker);
