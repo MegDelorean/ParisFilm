@@ -69,20 +69,9 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
 
         var infoWindow = new google.maps.InfoWindow();
            
-           balladeDataService.getFilms().then(function(data){
-            for (i = 0; i < data.data.length; i++){
-                if(data.data[i].lat !== 0) {
-                 createMarker(data.data[i])
-                }
-                
-            }
-            $scope.movies = data.data;
-        })
-
-
-
         var createMarker = function(info){
-        	console.log("yolo");
+        	
+            console.log("create Marker");
             
             var marker = new google.maps.Marker({
                 map: $scope.map,
@@ -90,25 +79,28 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                 title: info.titre
             });
             google.maps.event.addListener(marker, 'click', function(){
-                var data = [];
-                data = jsonSyncLoad( "http://www.omdbapi.com/?t="+info.titre+"&y=&plot=full&r=json" );
+               var data = [];
+                data = jsonSyncLoad( "http://www.omdbapi.com/?t="+info.titre+"&y=&plot=full&r=json");
                 if(data.Director == undefined ) {
-                    marker.content = '<div class="infoWindowContent"><p>'+ info.real+'</p></div>';
+                    marker.content = '<div class="infoWindowContent"><div id ="content"><p><b>Réalisateur :</b> '+ info.real+'</p><button ng-click ="">GO!</button></div></div>';
                 }
                 else {
-                    console.log(data.Poster);
-                    marker.content = '<div class="infoWindowContent"><img src="'+ data.Poster+'"></img><p>'+ data.Director+'</p> <p>' + data.Year +'</p><p>'+ data.Genre+ '</p><p>'+data.Actors+'</p><p>'+data.Plot+'</p></div>';
-                    }
-
-                    infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content );
+                if(data.Poster == 'N/A')
+                {
+                    marker.content = '<div class="infoWindowContent"><div id ="content"><p><b>blob :</b> '+ data.Director+'</p><p><b>Sortie :</b> ' + data.Year +'</p><p><b>Genre :</b> '+ data.Genre+ '</p><p><b>Acteurs :</b> '+data.Actors+'</p><button ng-click ="">GO!</button></div></div>';
+                }
+                    marker.content = '<div class="infoWindowContent"><img src="http://img.omdbapi.com/?i='+data.imdbID+'&apikey=dab7b153"></img><div id ="content"><p><b>Réalisateur :</b> '+ data.Director+'</p><p><b>Sortie :</b> ' + data.Year +'</p><p><b>Genre :</b> '+ data.Genre+ '</p><p><b>Acteurs :</b> '+data.Actors+'</p><button ng-click ="">GO!</button></div></div>';
+                    
+                }
+                    infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
                     infoWindow.open($scope.map, marker);
-
                     
                 });
             $scope.markers.push(marker);
             
             
         }
+        
 
         $scope.calcRoute = function(latitude,longitude)
         {
@@ -118,9 +110,10 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
          
            var dirService = new google.maps.DirectionsService();
 
-           var first = new google.maps.LatLng(48.823777, 2.364813);
-           var second = new google.maps.LatLng(48.850686, 2.3555);
-           var third = new google.maps.LatLng(48.853754, 2.354315);
+
+           var first = new google.maps.LatLng(48.87184639, 2.33964230); // les 400 coups
+           var second = new google.maps.LatLng(48.8534043, 2.345649099); // a bout de souffle
+           var third = new google.maps.LatLng(48.8604502, 2.34222120); // cléo de 5 a 7
 
            var request = {
 
@@ -129,15 +122,42 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                waypoints: [{location: first, stopover: true},
                         {location: second, stopover: true},
                         {location: third, stopover: true}],
-               optimizeWaypoints: false,
+               optimizeWaypoints: true,
                travelMode: google.maps.TravelMode.WALKING
            };
 
 
            dirService.route(request, function(result, status) {
                if (status == google.maps.DirectionsStatus.OK) {
-                    console.log("ok");
+
+
+
+                console.log(result);
+
+            
+                    result.routes[0].legs[0].end_address = "les 400 coups";
+                    result.routes[0].legs[1].end_address = "Cléo de 5 à 7";
+                    result.routes[0].legs[2].end_address = "À bout de souffle";
+                    result.routes[0].legs[3].end_address = "Pierrot le fou";
+
+
+                    
                     directionsDisplay.setDirections(result);
+
+
+                      
+
+
+                        balladeDataService.getFilms().then(function(data){
+                        for (i = 0; i < data.data.length; i++){
+                             if(data.data[i].lat !== 0) {
+                                createMarker(data.data[i])
+                            }
+                
+                         }
+                         $scope.movies = data.data;
+                        })
+
                 }
                 else{
                     console.log("pas ok :(");
@@ -151,8 +171,10 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
      	 
        };
 
-       var finallat = 48.891695;
-        var finallng = 2.380257;
+       // Pierrot le fou 
+
+       var finallat = 48.8488722;
+        var finallng = 2.3392335;
        $scope.calcRoute(finallat,finallng)
 
 

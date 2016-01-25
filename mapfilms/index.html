@@ -28,9 +28,9 @@
 	</head>
 	<body>
 		<!-- Header -->
-		<header>
+		<header ng-cloak>
 	    	<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
-	        <nav id="menu">
+	        <nav id="menu" ng-cloak>
 	        	<ul id="menu-nav">
 	                <li><a href="#/home">Accueil</a></li>
 	                <li><a href="#/carte">Carte</a></li>
@@ -54,6 +54,7 @@
 	    <script src="js/controllers/HomeCtrl.js"></script>
 	    <script src="js/controllers/MapCtrl.js"></script>
 	    <script src="js/controllers/MapCtrl2.js"></script>
+	    <script src="js/controllers/MapCtrl3.js"></script>
 	    <script src="js/controllers/BalladesCtrl.js"></script>
 	    <script src="js/controllers/ParamCtrl.js"></script>
 	    <script src="js/controllers/AproposCtrl.js"></script>
@@ -61,6 +62,7 @@
 	    <!-- Services -->
 		<script src="js/services/filmsdata.js"></script>
 		<script src="js/services/balladedata.js"></script>
+
 
 
 	    <!-- Directives -->
