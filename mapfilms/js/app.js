@@ -24,6 +24,10 @@ app.config(['$routeProvider',
             controller: 'MapCtrl2',
 			templateUrl: 'js/views/map2.html'
         })
+/*        .when('/carte3', {
+            controller: 'MapCtrl3',
+			templateUrl: 'js/views/map3.html'
+        })*/
         .when('/ballades', {
             controller: 'BalladesCtrl',
 			templateUrl: 'js/views/ballades.html'

@@ -159,13 +159,13 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                     //$scope.calcRoute(info.lat, info.lng);
                 });
             $scope.markers.push(marker);
-            
-            
+
+
         }
 
         $scope.calcRoute = function(latitude,longitude)
         {
-        
+
            current_pos = new google.maps.LatLng($scope.mylat,$scope.mylng);
            end_pos = new google.maps.LatLng(latitude,longitude);
 

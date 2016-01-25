@@ -1,5 +1,32 @@
+app.controller('WindowCtrl', ['$scope', function($scope){
+        $scope.openInfoWindow = function(e, selectedMarker){
+            e.preventDefault();
+            google.maps.event.trigger(selectedMarker, 'click');
+        }
+        $scope.closeClick = function(){
+            $scope.windowOptions.visible = false;
+        }
+        $scope.windowOptions = {
+            visible: true
+        }
+}])
+
+
+
+
 routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$window', '$timeout', function($scope, filmsDataService, $window, $timeout){
         $scope.message = "Bienvenue sur la page Carte";
+        $scope.filtres = [
+            "Action",
+            "Adventure",
+            "Comedy",
+            "Crime",
+            "Documentary",
+            "Drama",
+            "Romance",
+            "Short",
+            "Thriller"
+        ]
 
         var lat = 48.863811;
         var lng = 2.345753;
@@ -40,41 +67,16 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
 
 /*        $scope.lat = 48.863811;
         $scope.lng = 2.345753;*/
-        //$scope.allVal = true;
         $scope.myLoc = {
             coords: {
                 latitude: $scope.mylat,
                 longitude: $scope.mylng
             },
             options: {
-                icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
-                visible: true
+                icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
             },
             show: false,
             id: 0
-        };
-                    /*
-            $scope.markersEvents = {
-    click: function (gMarker, eventName, model) {
-      if(model.$id){
-        model = model.coords;//use scope portion then
-      }
-      alert("Model: event:" + eventName + " " + JSON.stringify(model));
-    }
-  };
-            */
-
-        $scope.windowOptions = {
-            title:"My Loc",
-            visible: false
-        };
-
-        $scope.onClick = function() {
-            $scope.windowOptions.visible = !$scope.windowOptions.visible;
-        };
-
-        $scope.closeClick = function() {
-            $scope.windowOptions.visible = false;
         };
 
         $scope.moviesMarkers = [];
@@ -85,10 +87,21 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
             }
 
             $scope.moviesMarkers = markers;
-            console.log($scope.moviesMarkers);
+            //console.log($scope.moviesMarkers);
         })
 
         var createMarker = function(i, info, idKey){
+/*            function jsonSyncLoad( pFile ) {
+                var mime      =    "application/json"   ;
+                var xmlhttp   =   new XMLHttpRequest()  ;
+
+                xmlhttp.open("GET",pFile,false);
+                if (xmlhttp.overrideMimeType)
+                    xmlhttp.overrideMimeType( mime );
+
+                xmlhttp.send();
+                return (xmlhttp.status==200) ? JSON.parse( xmlhttp.responseText ) : null ;
+            }*/
             if (idKey == null) {
                 idKey = "id";
             }
@@ -99,25 +112,42 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                     longitude: info.lng
                 },
                 title: info.titre,
-                visible: true
+                show: true,
+                visible: true,
+                templateParameter: {
+                    infos: info
+                }
             };
             return newMarker;
-            //$scope.moviesMarkers.push(newMarker);
-            /*google.maps.event.addListener(marker, 'click', function(){
-                var data = [];
-                data = jsonSyncLoad( "http://www.omdbapi.com/?t="+info.titre+"&y=&plot=full&r=json" );
-                if(data.Director == undefined ) {
-                    marker.content = '<div class="infoWindowContent"><p>'+ info.real+'</p></div>';
-                }
-                else {
-                    marker.content = '<div class="infoWindowContent"><img src="'+ data.Poster+'"></img><p>'+ data.Director+'</p> <p>' + data.Year +'</p><p>'+ data.Genre+ '</p><p>'+data.Actors+'</p></div>';
-                    }
-                infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
-                infoWindow.open($scope.map, marker);
-
-                $scope.calcRoute(info.lat, info.lng);
-            });*/
         }
+
+        $scope.openInfoWindow = function(e, selectedMarker){
+            e.preventDefault();
+            google.maps.event.trigger(selectedMarker, 'click');
+        }
+
+        function hideShowStuff(className) {
+/*            console.log("className : "+className);
+            console.log("get className : "+getElementsByClassName(className));
+            return getElementsByClassName(className);*/
+/*          if(document.getElementsByClassName(className).style.display == ''){
+            document.getElementsByClassName(className).style.display = 'none';
+          } else {
+            document.getElementsByClassName(className).style.display = '';
+          }*/
+        }
+/*var coucou = hideShowStuff("Comedy");
+console.log(coucou);*/
+
+/*        $scope.hideShowStuff = function (className) {
+            console.log("className : "+className);
+            console.log("get className : "+getElementsByClassName(className));
+          if(document.getElementsByClassName(className).style.display == ''){
+            document.getElementsByClassName(className).style.display = 'none';
+          } else {
+            document.getElementsByClassName(className).style.display = '';
+          }
+        }*/
 
     }]);
 
@@ -281,17 +311,7 @@ function setMapOnAll(map) {
            directionsDisplay.setPanel(document.getElementById("map-panel"));
        };
 
-        function jsonSyncLoad( pFile ) {
-            var mime      =    "application/json"   ;
-            var xmlhttp   =   new XMLHttpRequest()  ;
 
-            xmlhttp.open("GET",pFile,false);
-            if (xmlhttp.overrideMimeType)
-                xmlhttp.overrideMimeType( mime );
-
-            xmlhttp.send();
-            return (xmlhttp.status==200) ? JSON.parse( xmlhttp.responseText ) : null ;
-        }
 
         $scope.openInfoWindow = function(e, selectedMarker){
             e.preventDefault();

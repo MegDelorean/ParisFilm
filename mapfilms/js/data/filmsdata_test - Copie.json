@@ -8,9 +8,7 @@
     "lat": 48.891695,
     "lng": 2.380257,
     "annee": "0",
-    "genre": "0",
-    "acteurs": "0",
-    "poster": ""
+    "genre": "0"
   },
   {
     "titre": "FROM PARIS WITH LOVE",
@@ -21,9 +19,7 @@
     "lat": 48.823777,
     "lng": 2.364813,
     "annee": "0",
-    "genre": "0",
-    "acteurs": "0",
-    "poster": ""
+    "genre": "0"
   },
   {
     "titre": "BAMBOU",
@@ -34,8 +30,6 @@
     "lat": 48.890258,
     "lng": 2.382685,
     "annee": "0",
-    "genre": "0",
-    "acteurs": "0",
-    "poster": ""
+    "genre": "0"
   }
 ]
