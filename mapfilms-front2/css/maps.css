@@ -1,0 +1,421 @@
+
+#heading
+{
+	margin-left:auto;
+	margin-right:auto;
+	background-color:black;
+	text-align:center;
+	padding-top:10px;
+	height:70px;
+}
+
+#icone
+{
+	margin-top:-38px;
+	padding-right:80px;
+	position:relative;
+
+}
+
+#icone img
+{
+	padding: 4px;
+	width:2%;
+	min-width:14px;
+	max-width:16px;
+}
+
+/****************************** MAP ***************************/
+#map {
+    width: 100%;
+	min-height:450px;
+	height:100%;
+    margin: 0px;
+	position:relative;
+}
+
+#Responsive-Content{
+	position:relative;
+	background-color:#FFF;
+	margin:0;
+	overflow:hidden;
+}
+
+#map_canvas {
+    position: relative;
+	height:auto;
+	width:auto;
+	background-color:black;
+}
+#repeat{
+    display: inline;
+}
+
+	 
+#names {
+    cursor: pointer;
+}
+
+#map-panel  {
+    width: 25%;
+    max-height: 370px;
+	height:auto;
+    float: right;
+    position: relative;
+    margin-top: -430px;
+	background-color:white;
+	overflow-x: hidden;
+    overflow-y: hidden;
+	overflow: auto;
+	min-width:300px;
+	padding: 8px 8px;
+	 border-style: solid;
+    border-width: 1px;
+}
+#map-panel tr {
+	font-size:10px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#map-panel .adp-legal {
+	font-size:9px;
+	bottom: 0;
+
+}
+
+#map-panel .adp{
+    font-family: Roboto,Arial,sans-serif;
+    font-weight: 500;
+    color: #2C2C2C;
+    font-size: 12px;
+    padding: 0px 40px;
+}
+
+#map-panel .adp-summary{
+    text-align: center;
+	text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+	
+}
+
+#map-panel .adp-directions{
+	margin-left:auto;
+	margin-right:auto;
+
+}
+
+#map-panel .adp-placemark {
+    background: black;
+    border: 0px solid #D2B8B8;
+    color: #ebebeb;
+    cursor: pointer;
+    margin: 2px 0px 2px 0px;
+    vertical-align: middle;
+	width: 100%;
+	}
+	
+#map-panel h2 {
+	font-variant: small-caps;
+	font-size:15px;
+
+   
+}
+	
+#map-panel .warnbox-content, .adp-warnbox
+{
+    display: none;
+}
+
+#map-panel  img{
+    width: 12px;
+    height: auto;
+	display:none;
+}
+
+#map-panel  td {
+padding: 2% 0%;
+text-align: center;
+font-weight: 500;
+
+}
+
+#map-panel .adp-substep .adp-stepicon {
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 11px;
+    height: 11px;
+    padding-left: 6px;
+}
+
+#map-panel button 
+{
+	font-size: 14px;
+    padding: 0px 5px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: -1%;
+    height: 18px;
+    background-color: black;
+    color: white;
+	position:absolute;
+}
+
+#itineraire-btn
+{
+float:left;
+position: relative;
+
+
+}
+
+/****************************** Info window ***************************/
+
+.infoWindowContent
+{
+margin-top:-1em;
+position:relative;
+min-height:50px;
+
+}
+
+.infoWindowContent img
+{
+	width:37%;
+	position:absolute;
+	vertical-align:middle;
+}
+
+#content
+{
+    float: right;
+    width: 55%;
+}
+
+#content p
+{
+	font-size: 9px;
+    margin-bottom: 3px;
+	color:black;
+}
+
+#content button
+{
+    padding: 0px 10px;
+    color: white;
+    background-color: rgb(23, 47, 90);
+    height: 20px;
+    margin-top: 1%;
+    margin-left: 40%;
+}
+
+#content button:hover
+{
+    background-color: grey;
+}
+/****************************** Search Bar ***************************/
+#search {
+margin-top:5px;
+
+}
+
+#search input[type="text"] {
+    background: url(../images/search-white.png) no-repeat 10px 6px #fcfcfc;
+    border: 1px solid #d1d1d1;
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: #bebebe;
+    width: 20%;
+	min-width: 150px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 5px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+	height:25px;
+    }
+
+#search input[type="text"]:focus {
+    width: 25%;
+	min-width:200px;
+    }
+
+/****************************** Filtres ***************************/
+
+#slide{
+  position:absolute;
+  width:100%;
+  height:10px;
+  top:90%;
+  background: grey;
+}  
+
+.animate-slide {
+  background:black;
+  opacity: 0.88;
+  position:absolute;
+  width: 100%;
+  height:100%;
+  top: 72%;
+  -webkit-transform: translate3d(0,0,0); /* Chrome, Safari, Opera */
+  transform: translate3d(0,0,0,);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+.animate-slide  h2
+{
+text-align:left;
+padding-left:2%;
+padding-right:70%;
+font-size:18px;
+color:white;
+font-variant: small-caps;
+display : inline-block;
+}
+
+.animate-slide  hr
+{
+margin-top: -18px;
+margin-bottom:auto;
+color: blue;
+border-top: 1px solid rgba(74, 74, 74, 0.95);
+
+}
+
+margin-top: -1px;
+
+
+.animate-slide.ng-hide-add,
+.animate-slide.ng-hide-remove {
+  display:block!important;
+}
+
+.animate-slide.ng-hide-remove.ng-hide-remove-active {
+  -webkit-animation:0.8s slide-up;
+  animation:0.8s slide-up;
+}
+
+.animate-slide.ng-hide-add.ng-hide-add-active {
+  -webkit-animation:0.8s slide-down;
+  animation:0.8s slide-down;
+}
+
+.animate-slide.ng-hide {
+  top:94%;
+  display:block!important;
+}
+
+.arrow
+{
+	width: 6.5px;
+    float: right;
+    margin-top: 4.5px;
+    margin-right: 2%;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes slide-up
+{
+  0%   {top:80%;}
+  100%  {top:0;}
+}
+
+/* Standard syntax */
+@keyframes slide-up
+{
+  0%   {top:80%;}
+  100%  {top:0;}
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes slide-down
+{
+  0%  {top:0;}
+  100%   {top:80%;}
+}
+
+/* Standard syntax */
+@keyframes slide-down
+{
+  0%  {top:0;}
+  100%   {top:80%;}
+}
+
+input[type=checkbox].css-checkbox 
+{
+	position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
+}
+
+input[type=checkbox].css-checkbox + label.css-label
+ {
+	padding-left:12px;
+	height:14px; 
+	display:inline-block;
+	line-height:14px;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	vertical-align:middle;
+	cursor:pointer;
+
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label 
+{
+	background-position: 0 -14px;
+}
+label.css-label 
+{
+	background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_01b8249a87b15c1a82d33471c0e7e0c1.png);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	
+			
+}
+
+table
+{
+	margin-left:3%;
+	margin-top:-1px;
+}
+
+td
+{
+  padding: 4.5% 9%;
+  text-align: left;
+ 
+}
+
+.css-label p
+{
+	margin-top:18px;
+	margin-left:-19px;
+	font-size:12px;
+}
+
+table img
+{
+	width:1%;
+	min-width:13px;
+	height:auto;
+	float:right;
+	margin-left:26px;
+	margin-top:-10px;
+	position:absolute;
+	padding-top:4px;
+}
