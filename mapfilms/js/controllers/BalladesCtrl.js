@@ -69,7 +69,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
 
         var infoWindow = new google.maps.InfoWindow();
            
-           balladeDataService.getFilms().then(function(data){
+         /*  balladeDataService.getFilms().then(function(data){
             for (i = 0; i < data.data.length; i++){
                 if(data.data[i].lat !== 0) {
                  createMarker(data.data[i])
@@ -77,12 +77,13 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                 
             }
             $scope.movies = data.data;
-        })
+        }) */
 
 
 
         var createMarker = function(info){
         	
+            console.log("create Marker");
             
             var marker = new google.maps.Marker({
                 map: $scope.map,
@@ -130,15 +131,35 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                waypoints: [{location: first, stopover: true},
                         {location: second, stopover: true},
                         {location: third, stopover: true}],
-               optimizeWaypoints: false,
+               optimizeWaypoints: true,
                travelMode: google.maps.TravelMode.WALKING
            };
 
 
            dirService.route(request, function(result, status) {
                if (status == google.maps.DirectionsStatus.OK) {
-                    console.log("ok");
+
+                console.log(result);
+
+            
+                    result.routes[0].legs[0].end_address = "Alternate Weeks / Pont Louis Philippe, Pont Louis Philippe, 75004 Paris, France";
+                    result.routes[0].legs[1].end_address = "HADEWIJCH";
+                    result.routes[0].legs[2].end_address = "From Paris With Love";
+                    result.routes[0].legs[3].end_address = "Bambou";
                     directionsDisplay.setDirections(result);
+                      
+
+
+                        balladeDataService.getFilms().then(function(data){
+                        for (i = 0; i < data.data.length; i++){
+                             if(data.data[i].lat !== 0) {
+                                createMarker(data.data[i])
+                            }
+                
+                         }
+                         $scope.movies = data.data;
+                        })
+
                 }
                 else{
                     console.log("pas ok :(");
