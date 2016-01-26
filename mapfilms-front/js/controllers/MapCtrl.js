@@ -92,10 +92,10 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
 
         filmsDataService.getFilms().then(function(data){
             for (i = 0; i < data.data.length; i++){
-                if(data.data[i].lat !== 0) {
+               if(data.data[i].lat !== 0) {
                  createMarker(data.data[i])
                 }
-                else {
+                else { 
                  gpsdata = [];
 
                  gpsdata= jsonSyncLoad("http://maps.googleapis.com/maps/api/geocode/json?address="+data.data[i].adr+"&sensor=false");
