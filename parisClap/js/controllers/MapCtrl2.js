@@ -1,5 +1,5 @@
 app.controller('WindowCtrl', ['$scope', function($scope){
-        $scope.openInfoWindow = function(e, selectedMarker){
+/*        $scope.openInfoWindow = function(e, selectedMarker){
             e.preventDefault();
             google.maps.event.trigger(selectedMarker, 'click');
         }
@@ -8,7 +8,7 @@ app.controller('WindowCtrl', ['$scope', function($scope){
         }
         $scope.windowOptions = {
             visible: true
-        }
+        }*/
 }])
 
 
@@ -17,21 +17,36 @@ app.controller('WindowCtrl', ['$scope', function($scope){
 routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$window', '$timeout', '$log', function($scope, filmsDataService, $window, $timeout, $log){
 
     $window.navigator.geolocation.getCurrentPosition(function(position) {
-        $scope.openInfoWindow = function(e, selectedMarker){
+/*        $scope.openInfoWindow = function(e, selectedMarker){
             e.preventDefault();
             google.maps.event.trigger(selectedMarker, 'click');
-        }
-        $scope.closeClick = function(){
+        }*/
+/*        $scope.closeClick = function(){
             $scope.windowOptions.visible = false;
-        }
+        }*/
         $scope.windowOptions = {
-            visible: true
-        }
-        $scope.clickGo = function(info){
-            $scope.calcRoute(info.lat, info.lng);
+            show: false,
+            closeClick: function() {
+                this.show = false;
+            },
+            options: {}
         }
 
-        $scope.message = "Bienvenue sur la page Carte";
+/*        window: {
+            marker: {},
+            show: false,
+            closeClick: function() {
+                this.show = false;
+            },
+            options: {} // define when map is ready
+        }*/
+
+/*
+        $scope.clickGo = function(info){
+            $scope.calcRoute(info.lat, info.lng);
+        }*/
+        $scope.message = "Explorer";
+        $scope.icone = "explorer-icone.png";
         $scope.filtres = [
             "Action",
             "Adventure",
@@ -157,12 +172,12 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                     longitude: info.lng
                 },
                 title: info.titre,
-                show: true,
-                visible: true,
+                show: false,
                 events: {
                     /*dragend: function (marker, eventName, args) {*/
                     click: function(){
-                        $scope.calcRoute(info.lat, info.lng)
+                        $scope.calcRoute(info.lat, info.lng);
+                        //NON$scope.windowOptions.show = true;
                     }
                 },
                 templateParameter: {
