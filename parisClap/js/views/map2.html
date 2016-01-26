@@ -1,4 +1,5 @@
 <div id="heading">
+<<<<<<< HEAD
 	<p>
 	{{ message }}
 	</p>
@@ -8,6 +9,15 @@
 		<form method="get" action="/search" id="search">
 		<input name="q" type="text" size="40" placeholder="Search..." />
   </form> 
+=======
+<p>{{ message }}</p>
+  <div id ="icone">
+    <img ng-src="images/{{icone}}" alt="explorer-icone" />
+  </div>
+    <form method="get" action="/search" id="search">
+    <input name="q" type="text" size="40" placeholder="Search..." />
+  </form>
+>>>>>>> 3a5cabea3414c429be792baa87cf8c71d1e310cd
 </div>
 
 <button class="itineraire-btn" ng-click="showme = showme ? false : true"><</button>
@@ -18,14 +28,14 @@
           </ui-gmap-marker>
           <span ng-if="checkedAll" class="animate-if">
             <ui-gmap-marker ng-repeat="mov in moviesMarkers" idkey="mov.id" coords="mov.coords" options="mov.options" events="mov.events" control='mov.control' class="mov.templateParameter.infos.Genre">
-               <ui-gmap-window options="windowOptions" closeClick="closeClick()"  >
-                   <div class="infoWindowContent">
-                    <div ng-if="mov.templateParameter.infos.poster != 'N/A'">
-                      <!-- <img src="http://img.omdbapi.com/?i='+data.imdbID+'&apikey=dab7b153"> -->
-                      <img src="{{mov.templateParameter.infos.poster}}"/>
+               <ui-gmap-window show="windowOptions.show" options="windowOptions.options" closeClick="windowOptions.closeClick()"  >
+                  <div class="infoWindowContent">
+                    <div ng-if="mov.templateParameter.infos.imdbID != 0">
+                      <img ng-src="http://img.omdbapi.com/?i={{mov.templateParameter.infos.imdbID}}&apikey=dab7b153">
+                      <!-- <img src="{{mov.templateParameter.infos.poster}}"/> -->
                     </div>
                     <div class ="content">
-                      <h2>{{templateParameter.infos.titre}}</h2>
+                      <h2>{{mov.templateParameter.infos.titre}}</h2>
                       <p><b>Réalisateur : {{mov.templateParameter.infos.real}}</b></p>
                       <p><b>Sortie :</b> {{mov.templateParameter.infos.annee}}</p>
                       <p><b>Genre :</b> {{mov.templateParameter.infos.genre}} </p>

@@ -90,11 +90,24 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
 
         var infoWindow = new google.maps.InfoWindow({maxWidth: 250});
 
-
-
-           filmsDataService.getFilms().then(function(data){
+        filmsDataService.getFilms().then(function(data){
             for (i = 0; i < data.data.length; i++){
-                if(data.data[i].lat !== 0) { createMarker(data.data[i]) };
+               if(data.data[i].lat !== 0) {
+                 createMarker(data.data[i])
+                }
+                else { 
+                 gpsdata = [];
+
+                 gpsdata= jsonSyncLoad("http://maps.googleapis.com/maps/api/geocode/json?address="+data.data[i].adr+"&sensor=false");
+
+                    if(gpsdata.results[0].geometry.location.lat != undefined && gpsdata.results[0].geometry.location.lng!= undefined) {
+                    data.data[i].lat = gpsdata.results[0].geometry.location.lat;
+                    data.data[i].lng = gpsdata.results[0].geometry.location.lng;
+                    createMarker(data.data[i])
+
+
+                    };
+                }
             }
             $scope.movies = data.data;
         })
