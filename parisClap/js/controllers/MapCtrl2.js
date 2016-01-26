@@ -20,26 +20,20 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
 /*        $scope.openInfoWindow = function(e, selectedMarker){
             e.preventDefault();
             google.maps.event.trigger(selectedMarker, 'click');
-<<<<<<< HEAD
-        }
-        $scope.closeClick = function(){
-            $scope.windowOptions.show = false;
-        }
-        $scope.windowOptions = {
-            show: false,
-			maxWidth: 190
-=======
+
         }*/
 /*        $scope.closeClick = function(){
             $scope.windowOptions.visible = false;
         }*/
         $scope.windowOptions = {
             show: false,
+			maxWidth: 190,
             closeClick: function() {
                 this.show = false;
+
             },
             options: {}
->>>>>>> 3a5cabea3414c429be792baa87cf8c71d1e310cd
+
         }
 
 /*        window: {
@@ -54,16 +48,10 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
 /*
         $scope.clickGo = function(info){
             $scope.calcRoute(info.lat, info.lng);
-<<<<<<< HEAD
-        }
-
-        $scope.message = "Explorer";
-		$scope.icone = "explorer-icone.png";
-=======
         }*/
         $scope.message = "Explorer";
         $scope.icone = "explorer-icone.png";
->>>>>>> 3a5cabea3414c429be792baa87cf8c71d1e310cd
+
         $scope.filtres = [
             "Action",
             "Adventure",
@@ -193,13 +181,9 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                 events: {
                     /*dragend: function (marker, eventName, args) {*/
                     click: function(){
-<<<<<<< HEAD
-                        $scope.calcRoute(info.lat, info.lng)
-						$scope.windowOptions.show = true;
-=======
+
                         $scope.calcRoute(info.lat, info.lng);
                         //NON$scope.windowOptions.show = true;
->>>>>>> 3a5cabea3414c429be792baa87cf8c71d1e310cd
                     }
                 },
                 templateParameter: {
