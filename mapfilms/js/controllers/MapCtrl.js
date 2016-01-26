@@ -122,7 +122,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
 
 
                     };
-                }
+                } 
             }
             $scope.movies = data.data;
         })
