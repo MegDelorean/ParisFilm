@@ -1,13 +1,16 @@
 <div id="heading">
-<!--   <p>{{ message }}</p>
-  <div id ="icone">
+	<p>
+	{{ message }}
+	</p>
+	<div id ="icone">
     <img ng-src="images/{{icone}}" alt="explorer-icone" />
-  </div>
-  <form method="get" action="/search" id="search">
-    <input name="q" type="text" size="40" placeholder="Search..." />
-  </form> -->
+	</div>
+		<form method="get" action="/search" id="search">
+		<input name="q" type="text" size="40" placeholder="Search..." />
+  </form> 
 </div>
 
+<button class="itineraire-btn" ng-click="showme = showme ? false : true"><</button>
 <div id="Responsive-Content">
   <div id="map_canvas">
       <ui-gmap-google-map id="map" center="map.center" zoom="map.zoom" draggable="true" options="options" events="map.events">
@@ -27,14 +30,14 @@
                       <p><b>Sortie :</b> {{mov.templateParameter.infos.annee}}</p>
                       <p><b>Genre :</b> {{mov.templateParameter.infos.genre}} </p>
                       <p><b>Acteurs :</b>{{mov.templateParameter.infos.acteurs}}</p>
-                      <button ng-click ="clickGo()">GO!</button>
+                      <button ng-click ="calcRoute(mov.templateParameter.infos.lat,mov.templateParameter.infos.lng)">GO!</button>
                     </div>
                   </div>
                 </ui-gmap-window>
             </ui-gmap-marker>
           </span>
       </ui-gmap-google-map>
-      <div id="map-panel"></div>
+      <div id="map-panel" ng-show="showme"></div>
   </div>
   <!-- <form>
     <input type="checkbox" ng-model="checkedAll" ng-init="checkedAll=true"  /> All<br>

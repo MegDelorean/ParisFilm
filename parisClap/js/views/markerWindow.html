@@ -4,7 +4,7 @@
 <div class="infoWindowContent">
 	<div id ="content">
 		<p><b>Réalisateur : {{info.real}}</b></p>
-		<button ng-click ="clickGo()">GO!</button>
+		<button ng-click ="calcRoute(info.lat,info.lng)">GO!</button>
 	</div>
 </div>
 
@@ -15,7 +15,7 @@
 		<p><b>Sortie :</b> {{data.Year}}</p>
 		<p><b>Genre :</b> {{data.Genre}} </p>
 		<p><b>Acteurs :</b>{{data.Actors}}</p>
-		<button ng-click ="clickGo()">GO!</button>
+		<button ng-click ="calcRoute(info.lat,info.lng)">GO!</button>
 	</div>
 </div>
 
@@ -27,6 +27,6 @@
 		<p><b>Sortie :</b> {{data.Year}}</p>
 		<p><b>Genre :</b> {{data.Genre}} </p>
 		<p><b>Acteurs :</b>{{data.Actors}}</p>
-		<button ng-click ="clickGo()">GO!</button>
+		<button ng-click ="calcRoute(info.lat,info.lng)">GO!</button>
 	</div>
 </div>

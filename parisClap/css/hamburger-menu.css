@@ -56,11 +56,6 @@ z-index:5;
 	transition-duration:0.3s;
 	overflow-x:hidden;
 	-webkit-overflow-scrolling:touch
-};
-
-body
-{
-	overflow-x:hidden;
 }
 
 @media (min-width:900px)
@@ -76,11 +71,18 @@ body
 	}
 }
 
+#mobile-nav a 
+{
+	text-decoration:none;
+	color:white;
+}
+
  #sp-page 
  {
 	background-color: black;
 	color: darkgrey;
 	position:relative;
+	background-color: #f8f8f8;
 }
 
 .topcoat-icon--menu-stack

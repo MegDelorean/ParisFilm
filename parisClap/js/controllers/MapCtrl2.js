@@ -22,16 +22,18 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
             google.maps.event.trigger(selectedMarker, 'click');
         }
         $scope.closeClick = function(){
-            $scope.windowOptions.visible = false;
+            $scope.windowOptions.show = false;
         }
         $scope.windowOptions = {
-            visible: true
+            show: false,
+			maxWidth: 190
         }
         $scope.clickGo = function(info){
             $scope.calcRoute(info.lat, info.lng);
         }
 
-        $scope.message = "Bienvenue sur la page Carte";
+        $scope.message = "Explorer";
+		$scope.icone = "explorer-icone.png";
         $scope.filtres = [
             "Action",
             "Adventure",
@@ -69,7 +71,7 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                     //Si nous sommes hors du perimetre : on centre sur Paris
                     $scope.lat =48.856614;
                     $scope.lng = 2.3522219000000177;
-                    $scope.zoom = 12;
+                    $scope.zoom = 14;
                 }
             });
         /*}, 3000)*/
@@ -163,6 +165,7 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                     /*dragend: function (marker, eventName, args) {*/
                     click: function(){
                         $scope.calcRoute(info.lat, info.lng)
+						$scope.windowOptions.show = true;
                     }
                 },
                 templateParameter: {

@@ -8,19 +8,19 @@ html, body {
 /****************************** Heading map ***************************/
 #heading
 {
-  margin-left:auto;
-  margin-right:auto;
-  background-color:black;
-  text-align:center;
-  padding-top:10px;
-  height:70px;
+	margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    text-align: center;
+    padding-top: 1px;
+    height: auto;
 }
 
 #icone
 {
-  margin-top:-38px;
-  padding-right:80px;
-  position:relative;
+  margin-top: -41px;
+    padding-right: 90px;
+    position: relative;
 
 }
 
@@ -28,8 +28,24 @@ html, body {
 {
   padding: 4px;
   width:2%;
-  min-width:14px;
-  max-width:16px;
+  min-width:15px;
+  max-width:17px;
+}
+
+.itineraire-btn
+{
+	background-color:white;
+	color:black;
+	float:right;
+	overflow:hidden;
+}
+
+.itineraire-btn :active
+{
+	background-color:black;
+	color:white;
+	float:right;
+	overflow:hidden;
 }
 
 /****************************** FILTRES ***************************/
@@ -88,7 +104,7 @@ html, body {
 .angular-google-map-container { height: 600px; }
 #map_canvas, #map, #map-panel {
     max-height: 100%;
-    min-height: 600px;
+    min-height: 450px;
     width: 100%;
     margin: 0px;
 }
@@ -108,18 +124,18 @@ html, body {
 /****************************** MAP-PANEL ***************************/
 #map-panel  {
     width: 25%;
-    max-height: 370px;
-  height:auto;
+    max-height: 330px;
+	height:auto;
     float: right;
     position: relative;
-    margin-top: -550px;
-  background-color:white;
-  overflow-x: hidden;
+    margin-top: -600px;
+	background-color:white;
+	overflow-x: hidden;
     overflow-y: hidden;
-  overflow: auto;
-  min-width:300px;
-  padding: 8px 8px;
-   border-style: solid;
+	overflow: auto;
+	min-width:300px;
+	padding: 8px 8px;
+	border-style: solid;
     border-width: 1px;
 }
 #map-panel tr {
@@ -234,9 +250,11 @@ min-height:50px;
 
 .infoWindowContent img
 {
-  width:37%;
-  position:absolute;
-  vertical-align:middle;
+	width: 40%;
+    position: absolute;
+    vertical-align: middle;
+    margin-top: 15px;
+    margin-bottom: auto;
 }
 
 .content
@@ -267,9 +285,46 @@ min-height:50px;
     background-color: grey;
 }
 
+.content h2 
+{
+	font-size:13px;
+	
+}
+
 
 /****************************** Search Bar ***************************/
+#search {
+margin-top:5px;
 
+}
+
+#search input[type="text"] {
+    background: url(../images/search-white.png) no-repeat 10px 6px #fcfcfc;
+    border: 1px solid #d1d1d1;
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: #bebebe;
+    width: 20%;
+	min-width: 150px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 5px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+	height:15px;
+	margin-bottom: 10px;
+    }
+
+#search input[type="text"]:focus {
+    width: 25%;
+	min-width:200px;
+    }
 
 /****************************** Filtres ***************************/
 
@@ -278,6 +333,17 @@ min-height:50px;
   width:100%;
   height:10px;
   top:90%;
+  background: grey;
+}  
+
+
+/****************************** Filtres ***************************/
+
+#slide{
+  position:absolute;
+  width:100%;
+  height:8px;
+  top:95%;
   background: grey;
 }
 
@@ -298,22 +364,24 @@ min-height:50px;
 
 .animate-slide  h2
 {
-text-align:left;
-padding-left:2%;
-padding-right:70%;
-font-size:18px;
-color:white;
-font-variant: small-caps;
-display : inline-block;
+	text-align:left;
+	padding-left:2%;
+	padding-right:70%;
+	font-size:18px;
+	margin-top: -1px;
+	color:white;
+	font-variant: small-caps;
+	display : inline-block;
 }
 
 .animate-slide  hr
 {
-margin-top: -18px;
-margin-bottom:auto;
-color: blue;
-border-top: 1px solid rgba(74, 74, 74, 0.95);
-margin-top: -1px;
+	margin-top: -12px;
+    margin-bottom: auto;
+    border-width: 0.5px;
+    border-top: 1px solid rgba(47, 41, 41, 0.95);
+    margin-top: px;
+    padding-bottom: 5px;
 
 }
 
@@ -335,15 +403,15 @@ margin-top: -1px;
 }
 
 .animate-slide.ng-hide {
-  top:94%;
+  top:96%;
   display:block!important;
 }
 
 .arrow
 {
-  width: 6.5px;
+	width: 6.5px;
     float: right;
-    margin-top: 4.5px;
+    margin-top: 5.5px;
     margin-right: 2%;
 }
 
@@ -412,7 +480,7 @@ label.css-label
 
 table
 {
-  margin-left:3%;
+  margin-left:2%;
   margin-top:-1px;
 }
 
