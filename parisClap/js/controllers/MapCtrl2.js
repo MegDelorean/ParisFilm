@@ -29,7 +29,7 @@ app.controller('WindowCtrl', ['$scope', function($scope){
 routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$window', '$timeout', '$log', function($scope, filmsDataService, $window, $timeout, $log){
 
     $window.navigator.geolocation.getCurrentPosition(function(position) {
-        $scope.message = "Explorer";
+        $scope.message = "Carte";
         $scope.icone = "explorer-icone.png";
 
         /*$scope.filtres = [
@@ -102,7 +102,7 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                 longitude: $scope.mylng
             },
             options: {
-                icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+                icon: 'images/me.png'
             },
             show: false,
             id: 0
@@ -182,7 +182,8 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                         this.show = false;
                     },
                     options: {
-                        maxWidth: 190
+                        maxWidth: 190,
+						minWidth: 180
                     },
                     /*templateUrl: "./js/views/markerWindow.html",*/
                     templateParameter: {},
