@@ -1,14 +1,27 @@
 app.controller('WindowCtrl', ['$scope', function($scope){
-/*        $scope.openInfoWindow = function(e, selectedMarker){
-            e.preventDefault();
-            google.maps.event.trigger(selectedMarker, 'click');
-        }
-        $scope.closeClick = function(){
-            $scope.windowOptions.visible = false;
-        }
-        $scope.windowOptions = {
-            visible: true
-        }*/
+
+    $scope.calcRoute = function (latitude, longitude, mylat, mylng) {
+       current_pos = new google.maps.LatLng(mylat,mylng);
+       end_pos = new google.maps.LatLng(latitude,longitude);
+       console.log(current_pos);
+       console.log(end_pos);
+       var dirService = new google.maps.DirectionsService();
+       var request = {
+           origin:current_pos,
+           destination:end_pos,
+           travelMode: google.maps.TravelMode.WALKING
+       };
+       dirService.route(request, function(result, status) {
+           if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(result);
+            }
+            else {
+                console.log("Itinéraire raté");
+            }
+        });
+
+        directionsDisplay.setPanel(document.getElementById("map-panel"));
+    };
 }])
 
 
@@ -17,42 +30,11 @@ app.controller('WindowCtrl', ['$scope', function($scope){
 routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$window', '$timeout', '$log', function($scope, filmsDataService, $window, $timeout, $log){
 
     $window.navigator.geolocation.getCurrentPosition(function(position) {
-/*        $scope.openInfoWindow = function(e, selectedMarker){
-            e.preventDefault();
-            google.maps.event.trigger(selectedMarker, 'click');
-
-        }*/
-/*        $scope.closeClick = function(){
-            $scope.windowOptions.visible = false;
-        }*/
-        $scope.windowOptions = {
-            show: false,
-			maxWidth: 190,
-            closeClick: function() {
-                this.show = false;
-
-            },
-            options: {}
-
-        }
-
-/*        window: {
-            marker: {},
-            show: false,
-            closeClick: function() {
-                this.show = false;
-            },
-            options: {} // define when map is ready
-        }*/
-
-/*
-        $scope.clickGo = function(info){
-            $scope.calcRoute(info.lat, info.lng);
-        }*/
         $scope.message = "Explorer";
         $scope.icone = "explorer-icone.png";
 
-        $scope.filtres = [
+        /*$scope.filtres = [
+            "false",
             "Action",
             "Adventure",
             "Comedy",
@@ -62,37 +44,36 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
             "Romance",
             "Short",
             "Thriller"
-        ]
-         /*var lat = position.coords.latitude;
-            var lng = position.coords.longitude;*/
+        ]*/
+        //Valeur par défaut des filtres
+        $scope.fi = 'false';
 
+        //var lat = position.coords.latitude;
+        //var lng = position.coords.longitude;
         var lat = 48.863811;
         var lng = 2.345753;
-        /*$scope.zoom = 15;*/
 
-/*        $timeout(function(){
-            console.log("TIMEOUT COUCOU !")*/
-            $scope.$apply(function(){
-                // Récuperation des données pour le marqueur de position
-                $scope.mylat = lat;
-                $scope.mylng = lng;
-                // Test périmetre
-                if ( (lat > 48.81229 ) && (lat < 48.905351) && (lat < 2.423) && (lat > 2.243443) )
-                {
-                    //Si nous sommes dans le perimetre : on centre sur notre position
-                    $scope.lat = lat;
-                    $scope.lng = lng;
-                    $scope.zoom = 15;
-                }
-                else
-                {
-                    //Si nous sommes hors du perimetre : on centre sur Paris
-                    $scope.lat =48.856614;
-                    $scope.lng = 2.3522219000000177;
-                    $scope.zoom = 14;
-                }
-            });
-        /*}, 3000)*/
+        $scope.$apply(function(){
+            // Récuperation des données pour le marqueur de position
+            $scope.mylat = lat;
+            $scope.mylng = lng;
+            // Test périmetre
+            if ( (lat > 48.81229 ) && (lat < 48.905351) && (lat < 2.423) && (lat > 2.243443) )
+            {
+                //Si nous sommes dans le perimetre : on centre sur notre position
+                $scope.lat = lat;
+                $scope.lng = lng;
+                $scope.zoom = 15;
+            }
+            else
+            {
+                //Si nous sommes hors du perimetre : on centre sur Paris
+                $scope.lat =48.856614;
+                $scope.lng = 2.3522219000000177;
+                $scope.zoom = 13;
+            }
+        });
+
         directionsDisplay = new google.maps.DirectionsRenderer();
         $scope.map = {
             center: {
@@ -105,18 +86,12 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                     $scope.$apply(function () {
                         directionsDisplay.setMap(map);
                         directionsDisplay.setOptions( { suppressMarkers: true} );
-                        //console.log(directionsDisplay)
                     });
                 }
             }
         }
         $scope.options = {scrollwheel: true};
 
-
-        /**/
-
-/*        $scope.lat = 48.863811;
-        $scope.lng = 2.345753;*/
         $scope.myLoc = {
             coords: {
                 latitude: $scope.mylat,
@@ -142,12 +117,14 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
         }
 
         $scope.moviesMarkers = [];
+        $scope.windowOptions = {};
         filmsDataService.getFilms().then(function(data){
             var markers = [];
             for (var i = 0; i < data.data.length; i++) {
                 if(data.data[i].lat !== 0) {
-                markers.push(createMarker(i, data.data[i]))
-            }
+                    markers.push(createMarker(i, data.data[i]))
+                }
+
                 /*else {
                     //$timeout(function(){
                         gpsdata = [];
@@ -163,7 +140,6 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
             }
 
             $scope.moviesMarkers = markers;
-            //console.log($scope.moviesMarkers);
         })
 
         var createMarker = function(i, info, idKey){
@@ -182,46 +158,28 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                     /*dragend: function (marker, eventName, args) {*/
                     click: function(){
 
-                        $scope.calcRoute(info.lat, info.lng);
+                        //$scope.calcRoute(info.lat, info.lng);
                         //NON$scope.windowOptions.show = true;
                     }
                 },
                 templateParameter: {
                     infos: info
+                },
+                windowOptions: {
+                    show: false,
+                    maxWidth: 190,
+                    closeClick: function() {
+                        this.show = false;
+                    },
+                    options: {},
+                    /*templateUrl: "./js/views/markerWindow.html",*/
+                    templateParameter: {},
+                    control: {}
                 }
             };
-
             return newMarker;
-        }
-        //Fonction pour le calcul d'itineraires
-        $scope.calcRoute = function(latitude, longitude)
-        {
-            /*var latitude = coords.latitude;
-            var longitude = coords.longitude;*/
-           current_pos = new google.maps.LatLng($scope.mylat,$scope.mylng);
-           end_pos = new google.maps.LatLng(latitude,longitude);
-
-           var dirService = new google.maps.DirectionsService();
-
-           var request = {
-               origin:current_pos,
-               destination:end_pos,
-               travelMode: google.maps.TravelMode.WALKING
-           };
-
-           dirService.route(request, function(result, status) {
-               if (status == google.maps.DirectionsStatus.OK) {
-                    console.log("ok");
-                    directionsDisplay.setDirections(result);
-                }
-                else{
-                    console.log("pas ok :(");
-                }
-        });
-
-           directionsDisplay.setPanel(document.getElementById("map-panel"));
-       };
-            });
+        };
+    });
 }]);
 
 

@@ -285,10 +285,10 @@ min-height:50px;
     background-color: grey;
 }
 
-.content h2 
+.content h2
 {
 	font-size:13px;
-	
+
 }
 
 
@@ -334,7 +334,7 @@ margin-top:5px;
   height:10px;
   top:90%;
   background: grey;
-}  
+}
 
 
 /****************************** Filtres ***************************/
@@ -486,7 +486,7 @@ table
 
 td
 {
-  padding: 4.5% 9%;
+  padding: 0.8em 1em;
   text-align: left;
 
 }
@@ -504,8 +504,8 @@ table img
   min-width:13px;
   height:auto;
   float:right;
-  margin-left:26px;
-  margin-top:-10px;
+  margin-left:1em;
+  margin-top: -0.7em;
   position:absolute;
   padding-top:4px;
 }
