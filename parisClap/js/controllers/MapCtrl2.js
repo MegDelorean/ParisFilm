@@ -21,6 +21,8 @@ app.controller('WindowCtrl', ['$scope', function($scope){
 
         directionsDisplay.setPanel(document.getElementById("map-panel"));
     }
+	
+	$scope.show == true;
 }])
 
 
