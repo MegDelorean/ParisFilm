@@ -167,11 +167,12 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                 },
                 windowOptions: {
                     show: false,
-                    maxWidth: 190,
                     closeClick: function() {
                         this.show = false;
                     },
-                    options: {},
+                    options: {
+                        maxWidth: 190
+                    },
                     /*templateUrl: "./js/views/markerWindow.html",*/
                     templateParameter: {},
                     control: {}

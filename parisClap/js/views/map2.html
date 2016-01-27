@@ -25,8 +25,8 @@
              control="mov.windowOptions.control">
               <div class="infoWindowContent" ng-controller="WindowCtrl">
 
-                 <div ng-if="windowOptions.templateParameter.infos.imdbID != 0">
-                  <img ng-src="http://img.omdbapi.com/?i={{windowOptions.templateParameter.infos.imdbID}}&apikey=dab7b153">
+                 <div ng-if="mov.windowOptions.templateParameter.infos.imdbID != 0">
+                  <img ng-src="http://img.omdbapi.com/?i={{mov.templateParameter.infos.imdbID}}&apikey=dab7b153">
                   <!-- <img src="{{mov.templateParameter.infos.poster}}"/> -->
                 </div>
                 <div class ="content">
@@ -50,15 +50,15 @@
       <tr>
           <td>
             <label>
-              <input type="radio" ng-model="fi" value="false" name="fi"/>
-              <img ng-src="images/comedy-pin.png" alt="comedy-pin" />
+              <!-- <input type="radio" ng-model="fi" value="false" name="fi"/> -->
+              <img ng-src="images/comedy-pin.png" alt="comedy-pin" ng-model="fi" value="false" />
               <br>All
             </label>
           </td>
           <td>
             <label>
-              <input type="radio" ng-model="fi" value="Action" name="fi"/>
-              <img ng-src="images/action-pin.png" alt="action-pin" />
+<!--               <input type="radio" ng-model="fi" value="Action" name="fi"/> -->
+              <img ng-src="images/action-pin.png" alt="action-pin" ng-model="fi" value="Action" />
               <br>Action
             </label>
           </td>
