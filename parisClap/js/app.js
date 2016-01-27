@@ -5,7 +5,8 @@ var app = angular.module('app', [
     'ngRoute',
     'routeAppControllers',
     'uiGmapgoogle-maps',
-    'hamburger_menu'
+    'hamburger_menu',
+    'elif'
 ]);
 
 
@@ -14,8 +15,8 @@ app.config(['$routeProvider',
         // Système de routage
         $routeProvider
         .when('/home', {
-            controller: 'HomeCtrl',
-			templateUrl: 'js/views/home.html'
+            controller: 'MapCtrl2',
+			templateUrl: 'js/views/map2.html'
         })
         /*.when('/carte', {
             controller: 'MapCtrl',

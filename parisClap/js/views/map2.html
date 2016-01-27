@@ -6,10 +6,15 @@
     <form method="get" id="search">
     <input name="q" type="text" size="40" placeholder="Titre, Genre, Réalisateur, Acteurs, Année..." ng-model="searchFilms" />
   </form>
+<button ng-click="removeDirection()">Remove Direction</button>
 
 </div>
-
 <button class="itineraire-btn" ng-click="showme = showme ? false : true"><</button>
+
+
+
+
+
 <div id="Responsive-Content">
   <div id="map_canvas">
       <ui-gmap-google-map id="map" center="map.center" zoom="map.zoom" draggable="true" options="options" events="map.events">
@@ -35,13 +40,25 @@
                   <p><b>Sortie :</b> {{mov.templateParameter.infos.annee}}</p>
                   <p><b>Genre :</b> {{mov.templateParameter.infos.genre}} </p>
                   <p><b>Acteurs :</b>{{mov.templateParameter.infos.acteurs}}</p>
-                  <button ng-click ="calcRoute('{{mov.templateParameter.infos.lat}}', '{{mov.templateParameter.infos.lng}}', '{{myLoc.coords.latitude}}', '{{myLoc.coords.longitude}}')">GO !</button>
+                  <button ng-click ="calcRoute('{{mov.templateParameter.infos.lat}}', '{{mov.templateParameter.infos.lng}}', '{{myLoc.coords.latitude}}', '{{myLoc.coords.longitude}}', 'TRANSIT')">GO !</button>
                 </div>
               </div>
             </ui-gmap-window>
           </ui-gmap-marker>
       </ui-gmap-google-map>
-      <div id="map-panel" ng-show="showme"></div>
+      <div id="map-panel" ng-show="showme">
+
+<!--         <div id="travel_selector" ng-controller="WindowCtrl">
+          <label for="singleSelect"> Mode of Travel: </label><br>
+            <select id="travelType" name="singleSelect" ng-model="travelMode" ng-change="calcRoute('{{travelMode}}')">
+                <option value="WALKING" selected="selected">Walking</option>
+                <option value="BICYCLING">Bicycling</option>
+                <option value="DRIVING">Driving</option>
+                <option value="TRANSIT">Transit</option>
+            </select></p>
+        </div> -->
+
+      </div>
   </div>
 
 <div class="animate-slide" ng-show="slide" >
