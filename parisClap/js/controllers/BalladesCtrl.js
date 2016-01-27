@@ -6,7 +6,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
         /*  var lat = position.coords.latitude;
             var lng = position.coords.longitude; */
         // On code lat et lng en dur pour simuler que nous nous trouvons dans Paris
-        var lat = 48.863811;
+/*        var lat = 48.863811;
         var lng = 2.345753;
 
 
@@ -176,7 +176,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
             google.maps.event.trigger(selectedMarker, 'click');
         }
 
-
+*/
     });
 }]);
 

@@ -28,11 +28,13 @@
              control="mov.windowOptions.control">
               <div class="infoWindowContent" ng-controller="WindowCtrl">
 
-                 <div ng-if="mov.windowOptions.templateParameter.infos.imdbID != 0">
+                <div ng-if="mov.windowOptions.templateParameter.infos.imdbID != 0">
                   <img ng-src="http://img.omdbapi.com/?i={{mov.templateParameter.infos.imdbID}}&apikey=dab7b153">
-                  <!-- <img src="{{mov.templateParameter.infos.poster}}"/> -->
                 </div>
-		
+                <div ng-else-if="mov.templateParameter.infos.poster != 'N/A'">
+                  <img src="{{mov.templateParameter.infos.poster}}"/>
+                </div>
+                <div ng-else></div>
                 <div class ="content">
                   <h2>{{mov.templateParameter.infos.titre}}</h2>
                   <p><b>Réalisateur : {{mov.templateParameter.infos.real}}</b></p>
@@ -40,7 +42,7 @@
                   <p><b>Genre :</b> {{mov.templateParameter.infos.genre}} </p>
                 </div>
 				 <button ng-click ="calcRoute('{{mov.templateParameter.infos.lat}}', '{{mov.templateParameter.infos.lng}}', '{{myLoc.coords.latitude}}', '{{myLoc.coords.longitude}}', 'TRANSIT')">j'y vais !</button>
-			
+
               </div>
             </ui-gmap-window>
           </ui-gmap-marker>
@@ -66,15 +68,15 @@
       <tr>
           <td>
             <label>
-              <!-- <input type="radio" ng-model="fi" value="false" name="fi"/> -->
-              <img ng-src="images/comedy-pin.png" alt="comedy-pin" ng-model="fi" value="false" />
+              <input type="radio" ng-model="fi" value="false" name="fi"/>
+              <img ng-src="images/comedy-pin.png" alt="comedy-pin"/>
               <br>All
             </label>
           </td>
           <td>
             <label>
-<!--               <input type="radio" ng-model="fi" value="Action" name="fi"/> -->
-              <img ng-src="images/action-pin.png" alt="action-pin" ng-model="fi" value="Action" />
+              <input type="radio" ng-model="fi" value="Action" name="fi"/>
+              <img ng-src="images/action-pin.png" alt="action-pin" />
               <br>Action
             </label>
           </td>

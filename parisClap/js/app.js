@@ -29,11 +29,11 @@ app.config(['$routeProvider',
         .when('/carte3', {
             controller: 'MapCtrl3',
 			templateUrl: 'js/views/map3.html'
-        })
+        })/*
         .when('/ballades', {
             controller: 'BalladesCtrl',
 			templateUrl: 'js/views/ballades.html'
-        })
+        })*/
         .when('/parametres', {
             controller: 'ParamCtrl',
 			templateUrl: 'js/views/parametres.html'
