@@ -1,17 +1,16 @@
 app.controller('WindowCtrl', ['$scope', function($scope){
-
-    $scope.calcRoute = function (latitude, longitude, mylat, mylng) {
-       current_pos = new google.maps.LatLng(mylat,mylng);
-       end_pos = new google.maps.LatLng(latitude,longitude);
-       console.log(current_pos);
-       console.log(end_pos);
-       var dirService = new google.maps.DirectionsService();
-       var request = {
+    $scope.calcRoute = function (latitude, longitude, mylat, mylng, selectedMode) {
+        //var selectedMode = document.getElementById('travelType').value;
+        current_pos = new google.maps.LatLng(mylat,mylng);
+        end_pos = new google.maps.LatLng(latitude,longitude);
+        var dirService = new google.maps.DirectionsService();
+        var request = {
            origin:current_pos,
            destination:end_pos,
-           travelMode: google.maps.TravelMode.WALKING
-       };
-       dirService.route(request, function(result, status) {
+           travelMode: google.maps.TravelMode[selectedMode]
+        };
+        //JUSTE AU DESSUS : choix du mode de transport (WALKING)
+        dirService.route(request, function(result, status) {
            if (status == google.maps.DirectionsStatus.OK) {
                 directionsDisplay.setDirections(result);
             }
@@ -21,7 +20,7 @@ app.controller('WindowCtrl', ['$scope', function($scope){
         });
 
         directionsDisplay.setPanel(document.getElementById("map-panel"));
-    };
+    }
 }])
 
 
@@ -48,8 +47,8 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
         //Valeur par défaut des filtres
         $scope.fi = 'false';
 
-        //var lat = position.coords.latitude;
-        //var lng = position.coords.longitude;
+/*        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;*/
         var lat = 48.863811;
         var lng = 2.345753;
 
@@ -58,23 +57,28 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
             $scope.mylat = lat;
             $scope.mylng = lng;
             // Test périmetre
-            if ( (lat > 48.81229 ) && (lat < 48.905351) && (lat < 2.423) && (lat > 2.243443) )
+            if ( (lat > 48.81229 ) && (lat < 48.905351) && (lng < 2.423) && (lng > 2.243443) )
             {
                 //Si nous sommes dans le perimetre : on centre sur notre position
                 $scope.lat = lat;
                 $scope.lng = lng;
-                $scope.zoom = 15;
+                $scope.zoom = 16;
             }
             else
             {
                 //Si nous sommes hors du perimetre : on centre sur Paris
                 $scope.lat =48.856614;
                 $scope.lng = 2.3522219000000177;
+<<<<<<< HEAD
                 $scope.zoom = 15;
+=======
+                $scope.zoom = 16;
+>>>>>>> c92849ce9988e3ca61cee4492921a15a1d5337ad
             }
         });
 
         directionsDisplay = new google.maps.DirectionsRenderer();
+
         $scope.map = {
             center: {
                 latitude: $scope.lat,
@@ -85,7 +89,11 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                 tilesloaded: function (map) {
                     $scope.$apply(function () {
                         directionsDisplay.setMap(map);
-                        directionsDisplay.setOptions( { suppressMarkers: true} );
+                        directionsDisplay.setOptions( { suppressMarkers: true, preserveViewport:true} );
+                        $scope.removeDirection = function(){
+                            directionsDisplay.setDirections({routes: []});
+                            //directionDisplay.set(null);
+                        }
                     });
                 }
             }
@@ -141,6 +149,13 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
 
             $scope.moviesMarkers = markers;
         })
+
+        $scope.onMarkerClicked = function(marker) {
+            _.each($scope.moviesMarkers, function(mker) {
+                mker.showWindow = false;
+            });
+            marker.showWindow = true;
+        };
 
         var createMarker = function(i, info, idKey){
             if (idKey == null) {

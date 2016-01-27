@@ -3,25 +3,13 @@ routeAppControllers.controller('BalladesCtrl',['$scope', 'balladeDataService', '
 $window.navigator.geolocation.getCurrentPosition(function(position) {
 
     $scope.message = "Bienvenue sur la page Ballades !";
-    $scope.filtres = [
-        "All",
-        "Action",
-        "Adventure",
-        "Comedy",
-        "Crime",
-        "Documentary",
-        "Drama",
-        "Romance",
-        "Short",
-        "Thriller"
-    ]
         /*  var lat = position.coords.latitude;
             var lng = position.coords.longitude; */
         // On code lat et lng en dur pour simuler que nous nous trouvons dans Paris
         var lat = 48.863811;
         var lng = 2.345753;
 
-        
+
         //$timeout(function(){
             $scope.$apply(function(){
                 // Récuperation des données pour le marqueur de position
@@ -54,6 +42,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
 
         $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
         directionsDisplay = new google.maps.DirectionsRenderer();
+        directionsDisplay.setOptions( { suppressMarkers: true, preserveViewport:true} );
         directionsDisplay.setMap($scope.map);
 
         //Affichage de notre localisation
@@ -65,14 +54,14 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
         });
 
         $scope.markers = [];
-         
+
 
         var infoWindow = new google.maps.InfoWindow();
-           
+
         var createMarker = function(info){
-        	
+
             console.log("create Marker");
-            
+
             var marker = new google.maps.Marker({
                 map: $scope.map,
                 position: new google.maps.LatLng(info.lat, info.lng),
@@ -87,27 +76,30 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                 else {
                 if(data.Poster == 'N/A')
                 {
-                    marker.content = '<div class="infoWindowContent"><div id ="content"><p><b>blob :</b> '+ data.Director+'</p><p><b>Sortie :</b> ' + data.Year +'</p><p><b>Genre :</b> '+ data.Genre+ '</p><p><b>Acteurs :</b> '+data.Actors+'</p><button ng-click ="">GO!</button></div></div>';
+                    marker.content = '<div class="infoWindowContent">
+                    <div id ="content">
+                    <p><b>blob :</b> '+ data.Director+'</p>
+                    <p><b>Sortie :</b> ' + data.Year +'</p>
+                    <p><b>Genre :</b> '+ data.Genre+ '</p>
+                    <p><b>Acteurs :</b> '+data.Actors+'</p>';
                 }
                     marker.content = '<div class="infoWindowContent"><img src="http://img.omdbapi.com/?i='+data.imdbID+'&apikey=dab7b153"></img><div id ="content"><p><b>Réalisateur :</b> '+ data.Director+'</p><p><b>Sortie :</b> ' + data.Year +'</p><p><b>Genre :</b> '+ data.Genre+ '</p><p><b>Acteurs :</b> '+data.Actors+'</p><button ng-click ="">GO!</button></div></div>';
-                    
+
                 }
                     infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
                     infoWindow.open($scope.map, marker);
-                    
+
                 });
             $scope.markers.push(marker);
-            
-            
         }
-        
+
 
         $scope.calcRoute = function(latitude,longitude)
         {
         	console.log("calcroute")
            current_pos = new google.maps.LatLng($scope.mylat,$scope.mylng);
            end_pos = new google.maps.LatLng(latitude,longitude);
-         
+
            var dirService = new google.maps.DirectionsService();
 
 
@@ -126,34 +118,23 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                travelMode: google.maps.TravelMode.WALKING
            };
 
-
            dirService.route(request, function(result, status) {
                if (status == google.maps.DirectionsStatus.OK) {
 
-
-
                 console.log(result);
-
-            
-                    result.routes[0].legs[0].end_address = "les 400 coups";
+                    result.routes[0].legs[0].end_address = "Les 400 coups";
                     result.routes[0].legs[1].end_address = "Cléo de 5 à 7";
                     result.routes[0].legs[2].end_address = "À bout de souffle";
                     result.routes[0].legs[3].end_address = "Pierrot le fou";
 
-
-                    
                     directionsDisplay.setDirections(result);
-
-
-                      
-
 
                         balladeDataService.getFilms().then(function(data){
                         for (i = 0; i < data.data.length; i++){
                              if(data.data[i].lat !== 0) {
                                 createMarker(data.data[i])
                             }
-                
+
                          }
                          $scope.movies = data.data;
                         })
@@ -166,12 +147,12 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
 
            directionsDisplay.setPanel(document.getElementById("map-panel"));
            //destination finale de l'itinéraire :
-        
 
-     	 
+
+
        };
 
-       // Pierrot le fou 
+       // Pierrot le fou
 
        var finallat = 48.8488722;
         var finallng = 2.3392335;
