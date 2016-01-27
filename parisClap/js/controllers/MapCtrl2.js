@@ -30,7 +30,7 @@ app.controller('WindowCtrl', ['$scope', function($scope){
 routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$window', '$timeout', '$log', function($scope, filmsDataService, $window, $timeout, $log){
 
     $window.navigator.geolocation.getCurrentPosition(function(position) {
-        $scope.message = "Explorer";
+        $scope.message = "Carte";
         $scope.icone = "explorer-icone.png";
 
         /*$scope.filtres = [
@@ -70,7 +70,7 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                 //Si nous sommes hors du perimetre : on centre sur Paris
                 $scope.lat =48.856614;
                 $scope.lng = 2.3522219000000177;
-                $scope.zoom = 13;
+                $scope.zoom = 15;
             }
         });
 
@@ -171,7 +171,8 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                         this.show = false;
                     },
                     options: {
-                        maxWidth: 190
+                        maxWidth: 190,
+						minWidth: 180
                     },
                     /*templateUrl: "./js/views/markerWindow.html",*/
                     templateParameter: {},

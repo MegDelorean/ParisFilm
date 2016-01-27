@@ -1,15 +1,14 @@
 <div id="heading">
-<p>{{ message }}</p>
+<h4>{{ message }}</h4>
   <div id ="icone">
     <img ng-src="images/{{icone}}" alt="explorer-icone" />
   </div>
     <form method="get" id="search">
     <input name="q" type="text" size="40" placeholder="Titre, Genre, Réalisateur, Acteurs, Année..." ng-model="searchFilms" />
   </form>
+  <button class="itineraire-btn" ng-click="showme = showme ? false : true"><</button>
 
 </div>
-
-<button class="itineraire-btn" ng-click="showme = showme ? false : true"><</button>
 <div id="Responsive-Content">
   <div id="map_canvas">
       <ui-gmap-google-map id="map" center="map.center" zoom="map.zoom" draggable="true" options="options" events="map.events">
@@ -29,14 +28,15 @@
                   <img ng-src="http://img.omdbapi.com/?i={{mov.templateParameter.infos.imdbID}}&apikey=dab7b153">
                   <!-- <img src="{{mov.templateParameter.infos.poster}}"/> -->
                 </div>
+		
                 <div class ="content">
                   <h2>{{mov.templateParameter.infos.titre}}</h2>
                   <p><b>Réalisateur : {{mov.templateParameter.infos.real}}</b></p>
                   <p><b>Sortie :</b> {{mov.templateParameter.infos.annee}}</p>
                   <p><b>Genre :</b> {{mov.templateParameter.infos.genre}} </p>
                   <p><b>Acteurs :</b>{{mov.templateParameter.infos.acteurs}}</p>
-                  <button ng-click ="calcRoute('{{mov.templateParameter.infos.lat}}', '{{mov.templateParameter.infos.lng}}', '{{myLoc.coords.latitude}}', '{{myLoc.coords.longitude}}')">GO !</button>
                 </div>
+				<button ng-click ="calcRoute('{{mov.templateParameter.infos.lat}}', '{{mov.templateParameter.infos.lng}}', '{{myLoc.coords.latitude}}', '{{myLoc.coords.longitude}}')">j'y vais</button>
               </div>
             </ui-gmap-window>
           </ui-gmap-marker>
