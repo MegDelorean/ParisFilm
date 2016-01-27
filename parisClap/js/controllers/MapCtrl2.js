@@ -69,11 +69,7 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                 //Si nous sommes hors du perimetre : on centre sur Paris
                 $scope.lat =48.856614;
                 $scope.lng = 2.3522219000000177;
-<<<<<<< HEAD
-                $scope.zoom = 15;
-=======
                 $scope.zoom = 16;
->>>>>>> c92849ce9988e3ca61cee4492921a15a1d5337ad
             }
         });
 
@@ -106,7 +102,7 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                 longitude: $scope.mylng
             },
             options: {
-                icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+                icon: 'images/me.png'
             },
             show: false,
             id: 0
