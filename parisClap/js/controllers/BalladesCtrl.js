@@ -3,10 +3,10 @@ routeAppControllers.controller('BalladesCtrl',['$scope', 'balladeDataService', '
 $window.navigator.geolocation.getCurrentPosition(function(position) {
 
     $scope.message = "Bienvenue sur la page Ballades !";
-        /*  var lat = position.coords.latitude;
-            var lng = position.coords.longitude; */
+          var lat = position.coords.latitude;
+            var lng = position.coords.longitude; 
         // On code lat et lng en dur pour simuler que nous nous trouvons dans Paris
-/*        var lat = 48.863811;
+        var lat = 48.863811;
         var lng = 2.345753;
 
 
@@ -76,12 +76,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                 else {
                 if(data.Poster == 'N/A')
                 {
-                    marker.content = '<div class="infoWindowContent">
-                    <div id ="content">
-                    <p><b>blob :</b> '+ data.Director+'</p>
-                    <p><b>Sortie :</b> ' + data.Year +'</p>
-                    <p><b>Genre :</b> '+ data.Genre+ '</p>
-                    <p><b>Acteurs :</b> '+data.Actors+'</p>';
+                    marker.content = '<div class="infoWindowContent"><div id ="content"><p><b>blob :</b> '+ data.Director+'</p><p><b>Sortie :</b> ' + data.Year +'</p><p><b>Genre :</b> '+ data.Genre+ '</p><p><b>Acteurs :</b> '+data.Actors+'</p>';
                 }
                     marker.content = '<div class="infoWindowContent"><img src="http://img.omdbapi.com/?i='+data.imdbID+'&apikey=dab7b153"></img><div id ="content"><p><b>Réalisateur :</b> '+ data.Director+'</p><p><b>Sortie :</b> ' + data.Year +'</p><p><b>Genre :</b> '+ data.Genre+ '</p><p><b>Acteurs :</b> '+data.Actors+'</p><button ng-click ="">GO!</button></div></div>';
 
@@ -176,7 +171,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
             google.maps.event.trigger(selectedMarker, 'click');
         }
 
-*/
+
     });
 }]);
 
