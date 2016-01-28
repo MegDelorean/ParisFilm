@@ -6,8 +6,8 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
           var lat = position.coords.latitude;
             var lng = position.coords.longitude; 
         // On code lat et lng en dur pour simuler que nous nous trouvons dans Paris
-        var lat = 48.863811;
-        var lng = 2.345753;
+        var lat = 48.854667;
+        var lng = 2.347735;
 
 
         //$timeout(function(){
@@ -49,7 +49,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
         var myLoc = new google.maps.Marker({
             map: $scope.map,
             position: {lat: $scope.mylat, lng: $scope.mylng},
-            icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+            icon: 'images/me.png',
             title: "Votre position",
         });
 
