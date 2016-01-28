@@ -49,7 +49,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
         var myLoc = new google.maps.Marker({
             map: $scope.map,
             position: {lat: $scope.mylat, lng: $scope.mylng},
-            icon: 'images/me.png',
+            icon: 'me.png',
             title: "Votre position",
         });
 

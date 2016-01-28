@@ -392,11 +392,11 @@ position: relative;
 {
 	margin-top:-1em;
 	position:relative;
-	min-height:120px;
+	min-height:150px;
 	height:auto;
-	max-height:180px;
-  max-width:190px;
-  min-width:180px;
+	max-height:200px;
+	max-width:190px;
+	min-width:180px;
 }
 
 .infoWindowContent img
