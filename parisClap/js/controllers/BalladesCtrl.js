@@ -2,11 +2,11 @@
 routeAppControllers.controller('BalladesCtrl',['$scope', 'balladeDataService', '$window', '$timeout', function($scope, balladeDataService, $window, $timeout){
 $window.navigator.geolocation.getCurrentPosition(function(position) {
 
-    $scope.message = "Bienvenue sur la page Ballades !";
-        /*  var lat = position.coords.latitude;
-            var lng = position.coords.longitude; */
+    $scope.message = "NOUVELLE VAGUE";
+          var lat = position.coords.latitude;
+            var lng = position.coords.longitude; 
         // On code lat et lng en dur pour simuler que nous nous trouvons dans Paris
-/*        var lat = 48.863811;
+        var lat = 48.863811;
         var lng = 2.345753;
 
 
@@ -69,21 +69,21 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
             });
             google.maps.event.addListener(marker, 'click', function(){
                var data = [];
-                data = jsonSyncLoad( "http://www.omdbapi.com/?t="+info.titre+"&y=&plot=full&r=json");
-                if(data.Director == undefined ) {
-                    marker.content = '<div class="infoWindowContent"><div id ="content"><p><b>Réalisateur :</b> '+ info.real+'</p><button ng-click ="">GO!</button></div></div>';
+               console.log(info.titre);
+               if(info.titre == "les quatre cents coups" ) {
+                    console.log('les 400 coups de fdp');
+                    marker.content = '<div class="infoWindowContent"><img src="'+info.poster+'"></img><div id ="content" class="content"><p><b>blob :</b> '+ info.real+'</p><p><b>Sortie :</b> ' + info.year +'</p><p><b>Genre :</b> '+ info.genre+ '</p><p><b>Acteurs :</b> '+info.Actors+'</p></div>';
                 }
+
+                
+
                 else {
+                    data = jsonSyncLoad( "http://www.omdbapi.com/?t="+info.titre+"&y=&plot=full&r=json");
                 if(data.Poster == 'N/A')
                 {
-                    marker.content = '<div class="infoWindowContent">
-                    <div id ="content">
-                    <p><b>blob :</b> '+ data.Director+'</p>
-                    <p><b>Sortie :</b> ' + data.Year +'</p>
-                    <p><b>Genre :</b> '+ data.Genre+ '</p>
-                    <p><b>Acteurs :</b> '+data.Actors+'</p>';
+                    marker.content = '<div class="infoWindowContent"><div id ="content" class="content"><p><b>blob :</b> '+ data.Director+'</p><p><b>Sortie :</b> ' + data.Year +'</p><p><b>Genre :</b> '+ data.Genre+ '</p><p><b>Acteurs :</b> '+data.Actors+'</p>';
                 }
-                    marker.content = '<div class="infoWindowContent"><img src="http://img.omdbapi.com/?i='+data.imdbID+'&apikey=dab7b153"></img><div id ="content"><p><b>Réalisateur :</b> '+ data.Director+'</p><p><b>Sortie :</b> ' + data.Year +'</p><p><b>Genre :</b> '+ data.Genre+ '</p><p><b>Acteurs :</b> '+data.Actors+'</p><button ng-click ="">GO!</button></div></div>';
+                    marker.content = '<div class="infoWindowContent"><img src="http://img.omdbapi.com/?i='+data.imdbID+'&apikey=dab7b153"></img><div class="content"><div id ="content"><p><b>Réalisateur :</b> '+ data.Director+'</p><p><b>Sortie :</b> ' + data.Year +'</p><p><b>Genre :</b> '+ data.Genre+ '</p><p><b>Acteurs :</b> '+data.Actors+'</p></div></div>';
 
                 }
                     infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
@@ -122,7 +122,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                if (status == google.maps.DirectionsStatus.OK) {
 
                 console.log(result);
-                    result.routes[0].legs[0].end_address = "Les 400 coups";
+                    result.routes[0].legs[0].end_address = "Les quatre cents coups";
                     result.routes[0].legs[1].end_address = "Cléo de 5 à 7";
                     result.routes[0].legs[2].end_address = "À bout de souffle";
                     result.routes[0].legs[3].end_address = "Pierrot le fou";
@@ -133,6 +133,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                         for (i = 0; i < data.data.length; i++){
                              if(data.data[i].lat !== 0) {
                                 createMarker(data.data[i])
+                                console.log(data.data[i]);
                             }
 
                          }
@@ -176,7 +177,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
             google.maps.event.trigger(selectedMarker, 'click');
         }
 
-*/
+
     });
 }]);
 
