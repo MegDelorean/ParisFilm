@@ -21,7 +21,7 @@ app.controller('WindowCtrl', ['$scope', function($scope){
 
         directionsDisplay.setPanel(document.getElementById("map-panel"));
     }
-	
+
 	$scope.show == true;
 }])
 
@@ -51,8 +51,8 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
 
 /*        var lat = position.coords.latitude;
         var lng = position.coords.longitude;*/
-        var lat = 48.863811;
-        var lng = 2.345753;
+        var lat = 48.854667;
+        var lng = 2.347735;
 
         $scope.$apply(function(){
             // Récuperation des données pour le marqueur de position
