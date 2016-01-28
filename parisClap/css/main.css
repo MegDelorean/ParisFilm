@@ -26,8 +26,29 @@ margin-left: auto;
     height: auto;
   margin-top:0px;
 }
+.listballade {
+ padding:10px;
+}
+.listballade a {
+text-decoration: none;
+color:black;
 
+}
 
+.listballade p {
+
+  display:inline-block;
+}
+
+.listballade img {
+max-width:200px;
+display:inline-block;
+
+}
+.listballade li, h3{
+list-style-type: none;
+margin-left:20px;
+}
 #headingBallades h4
 {
 margin-left: auto;
@@ -266,7 +287,24 @@ max-height:600px;
 	min-width:300px;
 	border-style: solid;
     border-width: 0px;
-	min-height: 500px
+	min-height: 500px;
+}
+#balade #map-panel {
+    width: 25%;
+  height:auto;
+    float: right;
+    position: relative;
+    margin-top:-450px;
+  background-color:white;
+  max-height: 450px;
+  overflow-x: hidden;
+    overflow-y: hidden;
+  overflow: auto;
+  min-width:300px;
+  border-style: solid;
+    border-width: 0px;
+  min-height: 100px;
+
 }
 #map-panel tr {
   font-size:10px;

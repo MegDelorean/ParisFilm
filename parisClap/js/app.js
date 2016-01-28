@@ -30,11 +30,11 @@ app.config(['$routeProvider',
             controller: 'MapCtrl3',
 			templateUrl: 'js/views/map3.html'
         })
-        .when('/ballades', {
+        .when('/balades', {
             controller: 'ListeBalladesCtrl',
 			templateUrl: 'js/views/listeballades.html'
         })
-        .when('/balladeNouvelleVague', {
+        .when('/baladeNouvelleVague', {
             controller: 'BalladesCtrl',
             templateUrl: 'js/views/ballades.html'
         })
