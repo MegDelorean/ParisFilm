@@ -1,9 +1,12 @@
 <section class="listeballades">
-	<h2>Les Ballades :</h2>
-	<p>
-		{{ message }}
-	</p>
+	<h3>Les Balades :</h3>
 
-
-	<li><a href="#/balladeNouvelleVague">Ballade "Nouvelle vague"</a></li>
+<div ng-repeat="ballade in ballades" ng-controller="ListeBalladesCtrl" class ="listballade">
+	<li><a href="#/baladeNouvelleVague">
+			<h4>{{ballade.nom}}</h4>
+			<img ng-src="{{ballade.img}}"></img>
+			<p> {{ ballade.desc }}</p>
+		</a>
+	</li>
+</div>
 </section>

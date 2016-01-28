@@ -26,8 +26,29 @@ margin-left: auto;
     height: auto;
   margin-top:0px;
 }
+.listballade {
+ padding:10px;
+}
+.listballade a {
+text-decoration: none;
+color:black;
 
+}
 
+.listballade p {
+
+  display:inline-block;
+}
+
+.listballade img {
+max-width:200px;
+display:inline-block;
+
+}
+.listballade li, h3{
+list-style-type: none;
+margin-left:20px;
+}
 #headingBallades h4
 {
 margin-left: auto;
