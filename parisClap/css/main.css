@@ -96,7 +96,7 @@ margin-left: auto;
 	color:white;
 	float:right;
 	overflow:hidden;
-	
+
 }
 
 /****************************** FILTRES ***************************/
@@ -245,7 +245,7 @@ margin-left: auto;
 #map-panel .warnbox-content, .adp-warnbox
 {
     display: none;
-	
+
 }
 
 #map-panel  img{
@@ -396,16 +396,6 @@ margin-left: 3%;
 	min-width:230px;
     }
 
-/****************************** Filtres ***************************/
-
-#slide{
-  position:absolute;
-  width:100%;
-  height:10px;
-  top:90%;
-  background: grey;
-}
-
 
 /****************************** Filtres ***************************/
 
@@ -423,7 +413,7 @@ margin-left: 3%;
   position:absolute;
   width: 100%;
   height:100%;
-  top: 72%;
+  top: 65%;
   -webkit-transform: translate3d(0,0,0); /* Chrome, Safari, Opera */
   transform: translate3d(0,0,0,);
   -webkit-backface-visibility: hidden;
@@ -450,7 +440,6 @@ margin-left: 3%;
     margin-bottom: auto;
     border-width: 0.5px;
     border-top: 1px solid rgba(47, 41, 41, 0.95);
-    margin-top: px;
     padding-bottom: 5px;
 
 }
@@ -473,6 +462,7 @@ margin-left: 3%;
 }
 
 .animate-slide.ng-hide {
+    /*position:fixed;*/
   top:96%;
   display:block!important;
 }
@@ -513,71 +503,68 @@ margin-left: 3%;
   100%   {top:80%;}
 }
 
-input[type=checkbox].css-checkbox
-{
-  position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
-}
-
-input[type=checkbox].css-checkbox + label.css-label
- {
-  padding-left:12px;
-  height:14px;
-  display:inline-block;
-  line-height:14px;
-  background-repeat:no-repeat;
-  background-position: 0 0;
-  vertical-align:middle;
-  cursor:pointer;
-
-}
-
-input[type=checkbox].css-checkbox:checked + label.css-label
-{
-  background-position: 0 -14px;
-}
-label.css-label
-{
-  background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_01b8249a87b15c1a82d33471c0e7e0c1.png);
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-
-}
-
+/************* INPUT *************/
 table
 {
-  margin-left:2%;
-  margin-top:5px;
+  margin: 0 auto;
 }
-
+tr{
+  height:100%;
+}
 td
 {
-  padding: 0.4em 1em;
-  text-align: left;
-
+  text-align: center;
+  padding:3% 6%;
+}
+input[type="radio"] {
+    display:none;
+}
+input[type="radio"] + label {
+    color: white;
+    font-family:Arial, sans-serif;
+    font-size:1em;
+}
+input[type="radio"] + label span {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    vertical-align:middle;
+    cursor:pointer;
+    -moz-border-radius:  50%;
+    border-radius:  50%;
 }
 
-.css-label p
-{
-  margin-top:18px;
-  margin-left:-19px;
-  font-size:12px;
+input[type="radio"] + label span {
+     background-color: black;
+}
+
+input[type="radio"]:checked + label span{
+     background-color: white;
+}
+
+input[type="radio"] + label span,
+input[type="radio"]:checked + label span {
+  -webkit-transition:background-color 0.4s linear;
+  -o-transition:background-color 0.4s linear;
+  -moz-transition:background-color 0.4s linear;
+  transition:background-color 0.4s linear;
 }
 
 table img
 {
-  width:1%;
+  width:1.7em;
   min-width:13px;
   height:auto;
   float:right;
-  margin-left:1em;
-  margin-top: -0.7em;
+  margin-left:-0.25em;
+  margin-top: -0.25em;
   position:absolute;
-  padding-top:4px;
+  z-index:-1;
+}
+
+label div{
+  margin-top:15px;
+  display:block;
 }
 
 /****************************** FOOTER ***************************/
