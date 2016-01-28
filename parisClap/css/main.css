@@ -13,7 +13,7 @@ html, body {
     background-color: black;
     text-align: center;
     padding-top: 1px;
-    height: auto;
+    height: 35px;
 	margin-top: -2px;
 }
 #headingBallades
@@ -82,34 +82,38 @@ margin-left: auto;
 {
 	background-color: rgba(201, 0, 0, 0);
     color: white;
-	float: right;
+    float: right;
     font-weight: bold;
     overflow: hidden;
     border-width: 1px;
     padding: 0px 10px;
     font-size: 12px;
-	margin-top: -24px;
-	margin-right:10px;
-	z-index: 5;
-	
+    margin-top: 1px;
+    margin-right: 1%;
+    z-index: 5;
+}
+
+.itineraire-btn img {
+width:22px;
 }
 
 .close-btn
 {
 	background-color: #C90000;
-	float: right; 
-	padding: 0px 4px;
-	margin-top:1px;
-	height:18px;
-	margin-top: -24px;
-	margin-right:1px;
-	z-index: 5;
+    float: right;
+    padding: 0px 3px;
+    margin-top: 1px;
+    height: 18px;
+    margin-top: 5px;
+    margin-right: 9px;
+    z-index: 5;
 	
 }
 
 .close-btn img
 {
-	width:8px;
+	width:9px;
+	padding: 0px 2px;
 }
 
 .itineraire-btn :active
@@ -228,7 +232,7 @@ margin-left: auto;
 
 #map_canvas {
     position: relative;
-	height:500px;
+	height:520px;
 }
 #repeat{
     display: inline;
@@ -262,7 +266,7 @@ max-height:600px;
 	min-width:300px;
 	border-style: solid;
     border-width: 0px;
-	min-height: 480px
+	min-height: 500px
 }
 #map-panel tr {
   font-size:10px;
@@ -450,10 +454,10 @@ position: relative;
 /****************************** Search Bar ***************************/
 #search {
 
-	margin-top: 1px;
-    display: inline-block;
-    margin-left: 30px;
+	margin-top: 5px;
+	width:50px;
 	z-index: 3;
+	margin-left:2%;
 
 }
 
@@ -463,7 +467,7 @@ position: relative;
     font: bold 10px Arial,Helvetica,Sans-serif;
     color: #bebebe;
     width: 20%;
-    min-width: 150px;
+    min-width: 200px;
     padding: 6px 15px 6px 35px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -483,10 +487,6 @@ position: relative;
 
   }
 
-#search input[type="text"]:focus {
-    width: 30%;
-	min-width:170px;
-    }
 
 
 /****************************** Filtres ***************************/
