@@ -107,7 +107,7 @@ width:22px;
     margin-top: 5px;
     margin-right: 9px;
     z-index: 5;
-	
+
 }
 
 .close-btn img
@@ -151,7 +151,7 @@ width:22px;
 	color: #0058FF
 }
 
-.other-content h3 
+.other-content h3
 {
 	font-size:16px;
 	color:black;
@@ -317,7 +317,7 @@ border-color: whitesmoke;
     vertical-align: middle;
 	width: 100%;
   }
-  
+
   #map-panel .adp-placemark td {
     font-size:11px;
 	padding: 5px 5px;
@@ -599,7 +599,9 @@ position: relative;
 /************* INPUT *************/
 table
 {
-  margin: 0 auto;
+  /*margin: 0 auto;*/
+  width:100%;
+  max-width: 30em;
 }
 tr{
   height:100%;
@@ -607,7 +609,7 @@ tr{
 td
 {
   text-align: center;
-  padding:3% 6%;
+  padding-top:10px;
 }
 
 input[type="radio"] {
@@ -731,12 +733,12 @@ label div{
     background: #A1A1A1;
     position: absolute; top: 0; bottom: 0;
     right: 43px;
-    transition: all 0.3s ease-in 0s; 
+    transition: all 0.3s ease-in 0s;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
     margin-left: 0;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
-    background-color: #CC1439; 
+    right: 0px;
+    background-color: #CC1439;
 }
