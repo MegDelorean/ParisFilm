@@ -1,7 +1,11 @@
 [
   {
-    "titre": " les 400 coups ",
+    "titre": "les quatre cents coups",
     "real": "François Truffaut",
+    "year":1959,
+    "genre":"Drama",
+    "Actors": "Jean-Pierre Léaud, Albert Rémy, Claire Maurier",
+    "poster":"./images/ballades/400coups.jpg",
     "rue": "Boulevard des Italiens",
     "cp": 75019,
     "adr": "5 boulevard des Italiens Paris France",

@@ -16,6 +16,41 @@ html, body {
     height: auto;
 	margin-top: -2px;
 }
+#headingBallades
+{
+margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    text-align: center;
+    padding-top: 1px;
+    height: auto;
+  margin-top:0px;
+}
+
+
+#headingBallades h4
+{
+margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    text-align:left;
+    padding-top: 1px;
+    height: auto;
+    margin-bottom:0px;
+
+}
+
+#headingBallades.itineraire-btn
+{
+  background-color:#C90000;
+  color:white;
+  float:right;
+  font-weight:bold;
+  overflow:hidden;
+  border-width:1px;
+  padding:0px 10px;
+  font-size:12px;
+}
 
 #heading h4
 {
@@ -266,6 +301,8 @@ position: relative;
 	min-height:120px;
 	height:auto;
 	max-height:180px;
+  max-width:190px;
+  min-width:180px;
 }
 
 .infoWindowContent img
