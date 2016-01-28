@@ -1,5 +1,5 @@
 <div id="headingBallades">
-	<button class="itineraire-btn" ng-click="showme = showme ? false : true"><</button>
+	<a class="itineraire-btn" ng-click="showme = showme ? false : true" ng-hide="show"> <img ng-src="images/direction.png"></img></a>
 <h4>{{message}}</h4>
  
 </div>
@@ -7,6 +7,14 @@
   <div id="Responsive-Content">
 	<div id="map_canvas">
     	<div id="map"></div>
+
+    	<div id="balade">
+    	<div id="map-panel" ng-show="showme">
+    			<div><h2> mon itineraire</h2> </div>
+    	</div>
+    </div>
+
     	<div id="map-panel" ng-show="showme"><div><h2> ma ballade </h2> </div></div>
+
     </div>
 </div>

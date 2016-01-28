@@ -266,7 +266,24 @@ max-height:600px;
 	min-width:300px;
 	border-style: solid;
     border-width: 0px;
-	min-height: 500px
+	min-height: 500px;
+}
+#balade #map-panel {
+    width: 25%;
+  height:auto;
+    float: right;
+    position: relative;
+    margin-top:-450px;
+  background-color:white;
+  max-height: 450px;
+  overflow-x: hidden;
+    overflow-y: hidden;
+  overflow: auto;
+  min-width:300px;
+  border-style: solid;
+    border-width: 0px;
+  min-height: 100px;
+
 }
 #map-panel tr {
   font-size:10px;
