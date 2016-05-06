@@ -1,0 +1,47 @@
+<div class="infoWindowContent">
+	<div ng-if="windowOptions.templateParameter.infos.imdbID != 0">
+		<img ng-src="http://img.omdbapi.com/?i={{windowOptions.templateParameter.infos.imdbID}}&apikey=dab7b153">
+		<!-- <img src="{{mov.templateParameter.infos.poster}}"/> -->
+	</div>
+	<div class ="content">
+		<h2>{{windowOptions.templateParameter.infos.titre}}</h2>
+		<p><b>Réalisateur : {{windowOptions.templateParameter.infos.real}}</b></p>
+		<p><b>Sortie :</b> {{windowOptions.templateParameter.infos.annee}}</p>
+		<p><b>Genre :</b> {{windowOptions.templateParameter.infos.genre}} </p>
+		<p><b>Acteurs :</b>{{windowOptions.templateParameter.infos.acteurs}}</p>
+		<button ng-click ="calcRoute(mov.templateParameter.infos)">GO!</button>
+	</div>
+</div>
+
+
+
+<!-- <h2> {{marker.title}} </h2>
+
+
+<div class="infoWindowContent">
+	<div id ="content">
+		<p><b>Réalisateur : {{info.real}}</b></p>
+		<button ng-click ="calcRoute(info.lat,info.lng)">GO!</button>
+	</div>
+</div>
+
+<div class="infoWindowContent">
+	<div id ="content">
+		<p><b>Réalisateur : {{info.real}}</b></p>
+		<p><b>Sortie :</b> {{data.Year}}</p>
+		<p><b>Genre :</b> {{data.Genre}} </p>
+		<p><b>Acteurs :</b>{{data.Actors}}</p>
+		<button ng-click ="calcRoute(info.lat,info.lng)">GO!</button>
+	</div>
+</div>
+
+<div class="infoWindowContent">
+	<img src="{{data.Poster}}"></img>
+	<div id ="content">
+		<p><b>Réalisateur : {{info.real}}</b></p>
+		<p><b>Sortie :</b> {{data.Year}}</p>
+		<p><b>Genre :</b> {{data.Genre}} </p>
+		<p><b>Acteurs :</b>{{data.Actors}}</p>
+		<button ng-click ="calcRoute(info.lat,info.lng)">GO!</button>
+	</div>
+</div> -->
