@@ -4,7 +4,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
 
     $scope.message = "NOUVELLE VAGUE";
           var lat = position.coords.latitude;
-            var lng = position.coords.longitude; 
+            var lng = position.coords.longitude;
         // On code lat et lng en dur pour simuler que nous nous trouvons dans Paris
         var lat = 48.854667;
         var lng = 2.347735;
@@ -75,13 +75,13 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                     marker.content = '<div class="infoWindowContent"><img src="'+info.poster+'"></img><div id ="content" class="content"><p><b>blob :</b> '+ info.real+'</p><p><b>Sortie :</b> ' + info.year +'</p><p><b>Genre :</b> '+ info.genre+ '</p><p><b>Acteurs :</b> '+info.Actors+'</p></div>';
                 }
 
-                
+
 
                 else {
                     data = jsonSyncLoad( "http://www.omdbapi.com/?t="+info.titre+"&y=&plot=full&r=json");
                 if(data.Poster == 'N/A')
                 {
-                    marker.content = '<div class="infoWindowContent"><div id ="content" class="content"><p><b>blob :</b> '+ data.Director+'</p><p><b>Sortie :</b> ' + data.Year +'</p><p><b>Genre :</b> '+ data.Genre+ '</p><p><b>Acteurs :</b> '+data.Actors+'</p>';
+                    marker.content = '<div class="infoWindowContent"><div id ="content" class="content"><p><b>Réalisateur :</b> '+ data.Director+'</p><p><b>Sortie :</b> ' + data.Year +'</p><p><b>Genre :</b> '+ data.Genre+ '</p><p><b>Acteurs :</b> '+data.Actors+'</p>';
                 }
                     marker.content = '<div class="infoWindowContent"><img src="http://img.omdbapi.com/?i='+data.imdbID+'&apikey=dab7b153"></img><div class="content"><div id ="content"><p><b>Réalisateur :</b> '+ data.Director+'</p><p><b>Sortie :</b> ' + data.Year +'</p><p><b>Genre :</b> '+ data.Genre+ '</p><p><b>Acteurs :</b> '+data.Actors+'</p></div></div>';
 

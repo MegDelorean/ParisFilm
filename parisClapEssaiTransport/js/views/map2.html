@@ -9,6 +9,24 @@
   <a class="itineraire-btn" ng-click="showme = showme ? false : true" ng-hide="show"> <img ng-src="images/direction.png"></img></a>
   <a class="close-btn" ng-click="removeDirection();showme=false;" ng-hide="show"><img ng-src="images/close.png"></img></a>
    <!-- <button ng-click ="show=!show">hide/show</button> -->
+
+<!-- <div id="map-panel" ng-show="showme">
+        <div><h2> mon itineraire</h2> </div>
+
+        <div id="travel_selector" ng-controller="WindowCtrl">
+          <label for="singleSelect"> Mode of Travel: </label><br>
+            <select id="travelType" name="singleSelect" ng-model="travelMode" ng-change="calcRoute('{{latfilm}}', '{{longfilm}}', '{{myLoc.coords.latitude}}','{{myLoc.coords.longitude}}', '{{travelMode}}')">
+                <option value="WALKING" selected="selected">Walking</option>
+                <option value="BICYCLING">Bicycling</option>
+                <option value="DRIVING">Driving</option>
+                <option value="TRANSIT">Transit</option>
+            </select>
+        </div>
+
+      </div> -->
+
+
+
 </div>
 
 <div id="Responsive-Content">
@@ -37,23 +55,47 @@
                   <p><b>Réalisateur : {{mov.templateParameter.infos.real}}</b></p>
                   <p><b>Sortie :</b> {{mov.templateParameter.infos.annee}}</p>
                   <p><b>Genre :</b> {{mov.templateParameter.infos.genre}} </p>
+                  <p>Mode de transport : {{mov.templateParameter.transportMode.selectedOption}}</p>
                 </div>
-					<button ng-click ="calcRoute('{{mov.templateParameter.infos.lat}}', '{{mov.templateParameter.infos.lng}}', '{{myLoc.coords.latitude}}','{{myLoc.coords.longitude}}', 'TRANSIT');show=!show;">go !</button>
+                <button ng-click ="calcRoute('{{mov.templateParameter.infos.lat}}', '{{mov.templateParameter.infos.lng}}', '{{myLoc.coords.latitude}}','{{myLoc.coords.longitude}}', '{{mov.templateParameter.transportMode.selectedOption.name}}'); show=!show;">go !</button>
+                <div id="travel_selector">
+                  <label><!-- Mode de transport : -->
+                    <form name="myForm">
+                      <label for="mySelect">Make a choice:</label>
+                      <select name="mySelect" id="mySelect"
+                        ng-options="option.name for option in transportMode.availableOptions track by option.id"
+                        ng-model="mov.templateParameter.transportMode.selectedOption"></select> <!--  ng-change="changeSelectedItem()" -->
+
+
+           <!--<p>Mode de transport : {{mov.templateParameter.transportMode.selectedMode}}</p>
+                </div>
+                <button ng-click ="calcRoute('{{mov.templateParameter.infos.lat}}', '{{mov.templateParameter.infos.lng}}', '{{myLoc.coords.latitude}}','{{myLoc.coords.longitude}}', '{{transportMode.selectedOption.name}}'); show=!show;">go !</button>
+                <div id="travel_selector">
+                  <label>Mode de transport :
+                    <form name="myForm">
+                      <label for="mySelect">Make a choice:</label>
+                      <select name="mySelect" id="mySelect"
+                        ng-options="option.name for option in mov.templateParameter.transportMode.availableOptions track by option.id"
+                        ng-model="mov.templateParameter.transportMode.selectedOption"></select>   ng-change="changeSelectedItem()" -->
+                    </form>
+                  </label><br/>
+                </div>
               </div>
             </ui-gmap-window>
           </ui-gmap-marker>
       </ui-gmap-google-map>
-      <div id="map-panel" ng-show="showme">
-	  <div><h2> mon itineraire</h2> </div>
+       <div id="map-panel" ng-show="showme">
+        <div><h2> mon itineraire</h2> </div>
+        <!-- <button class="modeButton" ng-click="calcRoute('{{latfilm}}', '{{longfilm}}', '{{myLoc.coords.latitude}}','{{myLoc.coords.longitude}}', 'BICYCLING')"> BICYCLING</button>-->
 
 <!--         <div id="travel_selector" ng-controller="WindowCtrl">
           <label for="singleSelect"> Mode of Travel: </label><br>
-            <select id="travelType" name="singleSelect" ng-model="travelMode" ng-change="calcRoute('{{travelMode}}')">
+            <select id="travelType" name="singleSelect" ng-model="travelMode" ng-change="calcRoute('{{latfilm}}', '{{longfilm}}', '{{myLoc.coords.latitude}}','{{myLoc.coords.longitude}}', 'WALKING')">
                 <option value="WALKING" selected="selected">Walking</option>
                 <option value="BICYCLING">Bicycling</option>
                 <option value="DRIVING">Driving</option>
                 <option value="TRANSIT">Transit</option>
-            </select></p>
+            </select>
         </div> -->
 
       </div>
@@ -69,39 +111,39 @@
             <label for="All"><span></span><div>All</div></label>
           </td>
           <td>
-            <img src="images/action-pin.png" alt="action-pin"/>
+            <img src="images/filterPins/action-pin.png" alt="action-pin"/>
             <input type="radio" id="Action" ng-model="fi" name="fi" value="Action" />
             <label for="Action"><span></span><div>Action</div></label>
           </td>
           <td>
-            <img src="images/adventure-pin.png" alt="adventure-pin" />
+            <img src="images/filterPins/adventure-pin.png" alt="adventure-pin" />
             <input type="radio" id="Adventure" ng-model="fi" name="fi" value="Adventure" />
             <label for="Adventure"><span></span><div>Adventure</div></label>
           </td>
           <td>
-            <img src="images/comedy-pin.png" alt="comedy-pin" />
+            <img src="images/filterPins/comedy-pin.png" alt="comedy-pin" />
             <input type="radio" id="Comedy" ng-model="fi" name="fi" value="Comedy" />
             <label for="Comedy"><span></span><div>Comedy</div></label>
           </td>
       </tr>
       <tr>
           <td>
-            <img src="images/horror-pin.png" alt="horror-pin" />
+            <img src="images/filterPins/horror-pin.png" alt="horror-pin" />
             <input type="radio" id="Horror" ng-model="fi" name="fi" value="Horror" />
             <label for="Horror"><span></span><div>Horror</div></label>
           </td>
           <td>
-            <img src="images/drama-pin.png" alt="drama-pin" />
+            <img src="images/filterPins/drama-pin.png" alt="drama-pin" />
             <input type="radio" id="Drama" ng-model="fi" name="fi" value="Drama" />
             <label for="Drama"><span></span><div>Drama</div></label>
           </td>
           <td>
-            <img src="images/romance-pin.png" alt="romance-pin" />
+            <img src="images/filterPins/romance-pin.png" alt="romance-pin" />
             <input type="radio" id="Romance" ng-model="fi" name="fi" value="Romance" />
             <label for="Romance"><span></span><div>Romance</div></label>
           </td>
           <td>
-            <img src="images/thriller-pin.png" alt="thriller-pin" />
+            <img src="images/filterPins/thriller-pin.png" alt="thriller-pin" />
             <input type="radio" id="Thriller" ng-model="fi" name="fi" value="Thriller" />
             <label for="Thriller"><span></span><div>Thriller</div></label>
           </td>

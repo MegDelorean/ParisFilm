@@ -154,8 +154,86 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
             });
             marker.showWindow = true;
         };
+        var colorMarker = function(genre) {
+            var filtres = [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Horror",
+                "Drama",
+                "Romance",
+                "Thriller"
+            ];
 
+            switch (genre) {
+                //ComedyThriller
+                case "Comedy, Thriller":
+                    return "ComedyThriller";
+                //ComedyDrama
+                case "Comedy, Drama":
+                    return "ComedyDrama";
+                //ComedyRomance
+                case "Comedy, Romance":
+                case "Comedy, Drama, Romance":
+                    return "ComedyRomance";
+                //Comedy
+                case "Comedy":
+                    return "Comedy";
+                //Horror
+                case "Drama, Horror":
+                case "Drama, Horror, Thriller":
+                    return "Horror";
+                //DramaRomance
+                case "Drama, Romance":
+                    return "DramaRomance";
+                //Drama
+                case "Drama":
+                case "Short, Drama":
+                case "Crime, Drama":
+                case "Biography, Drama":
+                    return "Drama";
+                //ActionThriller
+                case "Action, Thriller":
+                case "Action, Crime, Thriller":
+                    return "ActionThriller";
+                //ActionAdventure
+                case "Action, Adventure, Sci-Fi":
+                    return "ActionAdventure";
+                //Action
+                case "Action":
+                    return "Action";
+                //AdventureRomance
+                case "Adventure, Drama, Romance":
+                    return "AdventureRomance";
+                //Adventure
+                case "Adventure":
+                case "Short, Adventure, Biography":
+                    return "Adventure";
+                //Romance
+                case "Short, Romance":
+                    return "Romance";
+                //Thriller
+                case "Thriller":
+                case "Mystery, Thriller":
+                case "Crime, Thriller":
+                    return "Thriller";
+
+                case genre.substring(0, genre.indexOf(",", 0)):
+
+                //Other
+                default:
+                    for(var i = 0; i<7; i++){
+                        if(genre.substring(0, genre.indexOf(",", 0)) === filtres[i]){
+                            return filtres[i];
+                        }
+                    }
+            }
+            return "Other";
+        }
         var createMarker = function(i, info, idKey){
+            if(info.genre) var colorM = colorMarker(info.genre);
+            else colorM = "Other";
+
             if (idKey == null) {
                 idKey = "id";
             }
@@ -167,6 +245,9 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                 },
                 title: info.titre,
                 show: false,
+                options: {
+                    icon:'images/mapPins/' + colorM + '.png'
+                },
                 events: {
                     /*dragend: function (marker, eventName, args) {*/
                     click: function(){
