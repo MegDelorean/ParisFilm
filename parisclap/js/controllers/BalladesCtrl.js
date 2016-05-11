@@ -4,7 +4,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
 
     $scope.message = "NOUVELLE VAGUE";
           var lat = position.coords.latitude;
-            var lng = position.coords.longitude; 
+            var lng = position.coords.longitude;
         // On code lat et lng en dur pour simuler que nous nous trouvons dans Paris
         var lat = 48.854667;
         var lng = 2.347735;
@@ -43,7 +43,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
         $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
         directionsDisplay = new google.maps.DirectionsRenderer();
         directionsDisplay.setOptions( { suppressMarkers: true, preserveViewport:true} );
-        directionsDisplay.setMap($scope.map);S
+        directionsDisplay.setMap($scope.map);
 
         //Affichage de notre localisation
         var myLoc = new google.maps.Marker({
@@ -58,14 +58,67 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
 
         var infoWindow = new google.maps.InfoWindow();
 
+        var colorMarker = function(genre) {
+            var filtres = [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Horror",
+                "Drama",
+                "Romance",
+                "Thriller"
+            ];
+
+            switch (genre) {
+                //ComedyDrama
+                case "Comedy, Drama, Music":
+                    return "ComedyDrama";
+                //ComedyRomance
+                case "Comedy, Romance":
+                case "Comedy, Drama, Romance":
+                    return "ComedyRomance";
+                //Comedy
+                case "Comedy":
+                    return "Comedy";
+                //Horror
+                case "Drama, Horror":
+                case "Drama, Horror, Thriller":
+                    return "Horror";
+                //DramaRomance
+                case "Drama, Romance":
+                case "Crime, Drama, Romance":
+                    return "DramaRomance";
+                //Drama
+                case "Drama":
+                case "Crime, Drama":
+                    return "Drama";
+                case genre.substring(0, genre.indexOf(",", 0)):
+
+                //Other
+                default:
+                    for(var i = 0; i<7; i++){
+                        if(genre.substring(0, genre.indexOf(",", 0)) === filtres[i]){
+                            return filtres[i];
+                        }
+                    }
+            }
+            return "Other";
+        }
         var createMarker = function(info){
+            // gestion couleur marqueur
+            console.log(info);
+            if(info.genre) var colorM = colorMarker(info.genre);
+            else colorM = "Other";
 
             console.log("create Marker");
 
             var marker = new google.maps.Marker({
                 map: $scope.map,
                 position: new google.maps.LatLng(info.lat, info.lng),
-                title: info.titre
+                title: info.titre,
+                options: {
+                    icon:'images/mapPins/' + colorM + '.png'
+                }
             });
             google.maps.event.addListener(marker, 'click', function(){
                var data = [];
@@ -75,7 +128,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                     marker.content = '<div class="infoWindowContent"><img src="'+info.poster+'"></img><div id ="content" class="content"><p><b>blob :</b> '+ info.real+'</p><p><b>Sortie :</b> ' + info.year +'</p><p><b>Genre :</b> '+ info.genre+ '</p><p><b>Acteurs :</b> '+info.Actors+'</p></div>';
                 }
 
-                
+
 
                 else {
                     data = jsonSyncLoad( "http://www.omdbapi.com/?t="+info.titre+"&y=&plot=full&r=json");
