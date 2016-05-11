@@ -20,7 +20,15 @@ html, body {
 		margin-top: -2px;
 		width:100%
 }
-
+#heading h4{
+  display:inline-block;
+}
+.headingBalade form {
+  display: none;
+}
+.headingBalade .mon-itineraire {
+  margin-top:-1px;
+}
 .mon-itineraire{
 	background-color:#B8252E;
 	float:right;
