@@ -96,8 +96,8 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                 }
             }
         }
-        var h = screen.availHeight;
-        document.getElementById("map_canvas").style.height = h;
+
+        document.getElementsByClassName("ng-scope").height = screen.height;
 
         $scope.options = {scrollwheel: true};
 
