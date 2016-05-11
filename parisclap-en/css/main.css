@@ -12,7 +12,7 @@ html, body {
 {
 		margin-left: auto;
     margin-right: auto;
-    /*background-color: #B8252E;*/
+    /*background-color: #FF3333;*/
 		background-color:black;
     text-align: center;
     padding-top: 1px;
@@ -22,7 +22,7 @@ html, body {
 }
 
 .mon-itineraire{
-	background-color:#B8252E;
+	background-color:#FF3333;
 	float:right;
 	margin-top:-43px;
  	width:30%;
@@ -48,9 +48,9 @@ html, body {
 	height:4.8em!important;
 }
 .navigation-bar img{
-	width:22%;
+	width:21%;
 	min-width: 150px;
-	margin-top:10px!important;
+	margin-top:2px!important;
 }
 .topcoat-icon, .topcoat-icon--large{
 	height:1.5rem!important;
@@ -226,7 +226,7 @@ width:22px;
 }
 
 .other-content #selected{
-	color:#CC1439;
+	color:#FF3333;
 	font-weight:600;
 }
 
@@ -284,7 +284,7 @@ width:22px;
   margin:0;
   overflow:hidden;
 }
-.angular-google-map-container { height: 600px; }
+.angular-google-map-container { height: 500px; }
  #map, #map-panel {
     max-height: 100%;
     min-height: 450px;
@@ -294,7 +294,7 @@ width:22px;
 
 #map_canvas {
     position: relative;
-	height:520px;
+	height:485px;
 }
 #repeat{
     display: inline;
@@ -319,7 +319,7 @@ max-height:600px;
 	height:auto;
   float: right;
   position: relative;
-    margin-top: -600px;
+    margin-top: -500px;
 	background-color:white;
 	max-height: 466px;
 	overflow-x: hidden;
@@ -405,7 +405,7 @@ border-color: whitesmoke;
 			background: none;
 	    padding: 5px;
 	    margin-bottom: 5px;
-	    border: 2.5px solid #B8252E;
+	    border: 2.5px solid #FF3333;
 	    color: #2c2c2c;
 	    cursor: pointer;
 	    height: 3em;
@@ -430,7 +430,7 @@ border-color: whitesmoke;
     text-align: center;
     height: 50px;
     color: white;
-    background-color: #B8252E;
+    background-color: #FF3333;
 		padding-bottom:20px!important,
 
 }
@@ -656,7 +656,7 @@ width: 35px;
 font: bold 13px/20px 'Oswald';
 color: white;
 text-transform: uppercase;
-background: #B8252E;
+background: #FF3333;
 border-radius: 0 0 0 0;
 text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
 }
@@ -681,7 +681,7 @@ text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
     position: absolute;
     border-width: 8px 8px 8px 0;
     border-style: solid solid solid none;
-    border-color: transparent #B8252E transparent;
+    border-color: transparent #FF3333 transparent;
     top: 8px;
     left: -6px;
 }
@@ -743,7 +743,7 @@ text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
 	display : inline-block;
 }
 
-.animate-slide  hr
+/*.animate-slide  hr
 {
 	margin-top: -12px;
     margin-bottom: auto;
@@ -751,7 +751,7 @@ text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
     border-top: 1px solid rgba(47, 41, 41, 0.95);
     padding-bottom: 5px;
 
-}
+}*/
 
 .animate-slide.ng-hide-add,
 .animate-slide.ng-hide-remove {
@@ -954,5 +954,5 @@ label div{
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px;
-    background-color: #CC1439;
+    background-color: #FF3333;
 }

@@ -96,6 +96,9 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                 }
             }
         }
+        var h = screen.availHeight;
+        document.getElementById("map_canvas").style.height = h;
+
         $scope.options = {scrollwheel: true};
 
         $scope.myLoc = {
