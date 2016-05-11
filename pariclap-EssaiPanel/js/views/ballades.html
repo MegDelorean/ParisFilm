@@ -1,0 +1,36 @@
+<!-- <div id="heading">
+    <h4>{{message}}</h4>
+    <div ng-click="showme = showme ? false : true" ng-hide="show" class ="mon-itineraire">
+        <p> Mon itinéraire </p>
+        <img src="images/down-arrow.png"></img>
+    </div>
+</div> -->
+
+<div id="heading" class="headingBalade">
+
+    <form method="get" id="search" class="search-wrapper cf">
+        <input name="q" type="text" size="40" placeholder="Titre, Réalisateur, Acteurs..." ng-model="searchFilms" />
+    <button type="submit"><img src="images/search.png"></img></button>
+      </form>
+      <h4>{{message}}</h4>
+    <div ng-click="showme = showme ? false : true" ng-hide="show" class ="mon-itineraire">
+      <p> Mon itinéraire </p>
+      <img src="images/down-arrow.png"></img>
+      <!-- <a class="itineraire-btn" ng-click="showme = showme ? false : true" ng-hide="show"> <img ng-src="images/direction.png"></img></a>
+      <a class="close-btn" ng-click="removeDirection();showme=false;" ng-hide="show"><img ng-src="images/close.png"></img></a>  -->
+
+    </div>
+</div>
+
+  <div id="Responsive-Content">
+	<div id="map_canvas">
+    	<div id="map"></div>
+    	<div id="balade">
+    	<div id="map-panel" ng-show="showme">
+    			<div><h2> mon itineraire</h2> </div>
+    	</div>
+    </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,45 @@
+[
+  {
+    "titre": "les quatre cents coups",
+    "real": "François Truffaut",
+    "year":1959,
+    "genre":"Drama",
+    "Actors": "Jean-Pierre Léaud, Albert Rémy, Claire Maurier",
+    "poster":"./images/ballades/400coups.jpg",
+    "rue": "Boulevard des Italiens",
+    "cp": 75019,
+    "adr": "5 boulevard des Italiens Paris France",
+    "lat": 48.87184639,
+    "lng": 2.33964230
+  },
+ {
+    "titre": "Breathless",
+    "real": "Jean-Luc Godard",
+    "genre":"Crime, Drama",
+    "rue": "Quai St-Michel",
+    "cp": 75013,
+    "adr": "Quai St-Michel",
+    "lat": 48.8534043,
+    "lng": 2.345649099
+  },
+  {
+    "titre": "Cléo from 5 to 7",
+    "real": "Agnès Varda",
+    "genre":"Comedy, Drama, Music",
+    "rue": "DE RIVOLI",
+    "cp": 75004,
+    "adr": "rue de rivoli Paris France",
+    "lat": 48.8604502,
+    "lng": 2.34222120
+  },
+  {
+    "titre": "Pierrot le fou",
+    "real": "Jean-Luc Godard",
+    "genre":"Crime, Drama, Romance",
+    "rue": "de Médicis",
+    "cp": 75004,
+    "adr": "1 rue de Médicis Paris France",
+    "lat": 48.8488722,
+    "lng": 2.3392335
+  }
+]
