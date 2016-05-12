@@ -30,7 +30,7 @@ app.controller('WindowCtrl', ['$scope', function($scope){
 
 routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$window', '$timeout', '$log', function($scope, filmsDataService, $window, $timeout, $log){
 
-    $window.navigator.geolocation.getCurrentPosition(function(position) {
+    //$window.navigator.geolocation.getCurrentPosition(function(position) {
         $scope.message = "Carte";
         $scope.icone = "explorer-icone.png";
 
@@ -54,7 +54,7 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
         var lat = 48.854667;
         var lng = 2.347735;
 
-        $scope.$apply(function(){
+        //$scope.$apply(function(){
             // Récuperation des données pour le marqueur de position
             $scope.mylat = lat;
             $scope.mylng = lng;
@@ -73,7 +73,7 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
                 $scope.lng = 2.3522219000000177;
                 $scope.zoom = 16;
             }
-        });
+        //});
 
         directionsDisplay = new google.maps.DirectionsRenderer();
 
@@ -275,7 +275,7 @@ routeAppControllers.controller('MapCtrl2', ['$scope', 'filmsDataService', '$wind
             };
             return newMarker;
         };
-    });
+    //});
 }]);
 
 

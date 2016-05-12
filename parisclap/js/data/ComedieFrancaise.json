@@ -1,0 +1,54 @@
+[
+  {
+    "titre": "L'Aile ou la Cuisse",
+    "real": "Claude Zidi",
+    "year":1976,
+    "genre":"Comedy",
+    "Actors": "Louis de Funès, Coluche, Julien Guiomar",
+    "poster":"./images/ballades/aileOuCuisse.jpg",
+    "rue": "5 Place Iéna",
+    "cp": 75016,
+    "adr": "Place Iéna",
+    "lat": 48.864632,
+    "lng": 2.294124
+  },
+  {
+    "titre": "Le père Noël est une ordure",
+    "real": "Jean-Marie Poiré",
+    "year":1982,
+    "genre":"Comedy",
+    "Actors": "Anémone, Thierry Lhermitte, Gérard Jugnot, Marie-Anne Chazel, Christian Clavier, Josiane Balasko, Bruno Moynot",
+    "poster":"./images/ballades/pereNoel.jpg",
+    "rue": "Boulevard Haussmann",
+    "cp": 75000,
+    "adr": "",
+    "lat": 48.873097,
+    "lng": 2.332039
+  },
+  {
+    "titre": "La Grande Vadrouille",
+    "real": "Gérard Oury",
+    "year":1966,
+    "genre":"Comedy, Adventure, War",
+    "Actors": "Bourvil, Louis de Funès, Terry-Thomas",
+    "poster":"./images/ballades/grandeVadrouille.jpeg",
+    "rue": "Place de l'Opéra",
+    "cp": 75009,
+    "adr": "Opéra Garnier",
+    "lat": 48.871160,
+    "lng": 2.332060
+  },
+  {
+    "titre": "Le Corniaud",
+    "real": "Gérard Oury",
+    "year":1965,
+    "genre":"Comedy",
+    "Actors": "Bourvil, Louis de Funès",
+    "poster":"./images/ballades/leCorniaud.jpg",
+    "rue": "Rue Gaillon",
+    "cp": 75002,
+    "adr": "Rue Gaillon",
+    "lat": 48.868388,
+    "lng": 2.3340830
+  }
+]

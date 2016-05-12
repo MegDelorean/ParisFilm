@@ -9,7 +9,6 @@ var app = angular.module('app', [
     'elif'
 ]);
 
-
 app.config(['$routeProvider',
     function($routeProvider) {
         // Système de routage
@@ -32,6 +31,10 @@ app.config(['$routeProvider',
         })
         .when('/baladeNouvelleVague', {
             controller: 'BalladesCtrl',
+            templateUrl: 'js/views/ballades.html'
+        })
+        .when('/baladeComiqueFrancais', {
+            controller: 'BalladesCtrl2',
             templateUrl: 'js/views/ballades.html'
         })
         .when('/parametres', {

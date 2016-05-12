@@ -1,17 +1,17 @@
 // Contrôleur de la page ballades
 routeAppControllers.controller('BalladesCtrl',['$scope', 'balladeDataService', '$window', '$timeout', function($scope, balladeDataService, $window, $timeout){
-$window.navigator.geolocation.getCurrentPosition(function(position) {
+//$window.navigator.geolocation.getCurrentPosition(function(position) {
 
     $scope.message = "NOUVELLE VAGUE";
-          var lat = position.coords.latitude;
-            var lng = position.coords.longitude; 
+/*          var lat = position.coords.latitude;
+            var lng = position.coords.longitude; */
         // On code lat et lng en dur pour simuler que nous nous trouvons dans Paris
         var lat = 48.854667;
         var lng = 2.347735;
 
 
         //$timeout(function(){
-            $scope.$apply(function(){
+            //$scope.$apply(function(){
                 // Récuperation des données pour le marqueur de position
                 $scope.mylat = lat;
                 $scope.mylng = lng;
@@ -30,7 +30,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                     $scope.lng = 2.3522219000000177;
                     $scope.zoom = 12;
                 }
-            });
+            //});
         //})
 
 
@@ -75,7 +75,7 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
                     marker.content = '<div class="infoWindowContent"><img src="'+info.poster+'"></img><div id ="content" class="content"><p><b>blob :</b> '+ info.real+'</p><p><b>Sortie :</b> ' + info.year +'</p><p><b>Genre :</b> '+ info.genre+ '</p><p><b>Acteurs :</b> '+info.Actors+'</p></div>';
                 }
 
-                
+
 
                 else {
                     data = jsonSyncLoad( "http://www.omdbapi.com/?t="+info.titre+"&y=&plot=full&r=json");
@@ -178,6 +178,6 @@ $window.navigator.geolocation.getCurrentPosition(function(position) {
         }
 
 
-    });
+    //});
 }]);
 

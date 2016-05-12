@@ -2,7 +2,7 @@
 	<h3>Les Balades :</h3>
 
 <div ng-repeat="ballade in ballades" ng-controller="ListeBalladesCtrl" class ="listballade">
-	<li><a href="#/baladeNouvelleVague">
+	<li><a href="{{ballade.lien}}">
 			<h4>{{ballade.nom}}</h4>
 			<img ng-src="{{ballade.img}}"></img>
 			<p> {{ ballade.desc }}</p>

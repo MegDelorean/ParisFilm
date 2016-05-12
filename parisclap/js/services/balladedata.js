@@ -7,3 +7,13 @@ app.service('balladeDataService', ['$http', function($http){
         return filmsPromise;
     };
 }]);
+
+app.service('balladeDataService2', ['$http', function($http){
+    var filmsPromise;
+    this.getFilms = function(){
+        if(!filmsPromise){
+            filmsPromise = $http.get('js/data/ComedieFrancaise.json');
+        }
+        return filmsPromise;
+    };
+}]);
