@@ -79,6 +79,7 @@ html, body {
  width:90%;
  margin:auto;
  background-color:#34495e;
+
 }
 .listballade a {
 text-decoration: none;
@@ -89,16 +90,36 @@ color:black;
 .listballade p {
 
   display:inline-block;
-	width:88%;
+	width:90%;
 	font-size:15px;
 	color:white;
+	margin-left: auto;
+  margin-right: auto;
+	text-align:justify;
+
 }
 
 .listballade img {
-width:80%;
-max-width:400px;
+width:90%;
+max-width:500px;
+margin-left:1%;
 display:inline-block;
+position:relative;
 
+}
+
+.listeballades {
+		position: fixed;
+    top: 100px;
+    bottom: 10px;
+    overflow: auto;
+}
+
+.listeballades h3 {
+	color:#FF3333;
+	font-family:"oswald";
+	font-size:25px;
+	margin-left:5%;
 }
 .listballade li, h3{
 list-style-type: none;
