@@ -339,7 +339,7 @@ max-height:600px;
 	min-height: 500px;
 }
 #balade #map-panel {
-    width: 25%;
+    width: 100%;
   height:auto;
     float: right;
     position: relative;
